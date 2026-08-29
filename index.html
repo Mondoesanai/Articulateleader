@@ -3,1100 +3,794 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Articulate Leader™ | Executive Communication Operating System</title>
+<title>The Articulate Leader™ | FREE Executive Communication Training</title>
+<meta name="description" content="A free training with Mondoe Davis — the 3 shifts that make a room go quiet when you speak, without raising your voice or memorizing a script. Built for Christian leaders.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,500;1,800&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
+
 <style>
-:root {
-  --bg:    #070708;
-  --bg2:   #030A03;
-  --bg3:   #0A160A;
-  --bg4:   #0D1C0D;
-  --green: #5CFF3D;
-  --green2: rgba(92,255,61,0.7);
-  --glow:  rgba(92,255,61,0.12);
-  --glow2: rgba(92,255,61,0.22);
-  --white: #FFFFFF;
-  --off:   #F0F0EE;
-  --muted: rgba(255,255,255,0.55);
-  --dim:   rgba(255,255,255,0.35);
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--white); overflow-x: hidden; }
-img  { display: block; max-width: 100%; }
+/* ═══════════════════════════════════════════════════════════════
+   THE ARTICULATE LEADER™ — FREE Training offer page (v4)
+   Neon green #5CFF3D + deep green #0FAE4B on black. Montserrat.
+   Copy structured like Danielle Pulu's funnel. Type is the star:
+   the bold lines are billboard-size. CTAs open a modal.
+   ═══════════════════════════════════════════════════════════════ */
 
-/* ── TYPE ──────────────────────────────────────────── */
-.serif    { font-family: 'Playfair Display', serif; }
-.bebas    { font-family: 'Bebas Neue', cursive; }
-.eyebrow  { font-size: 11px; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--green); }
-.green-t  { color: var(--green); }
-.green-glow-t { color: var(--green); text-shadow: 0 0 40px rgba(92,255,61,.4); }
+:root{
+  --bg:#000; --bg-1:#040A05; --bg-2:#06110A; --bg-3:#08160D;
+  --line:rgba(15,174,75,.32); --line-2:rgba(233,242,231,.08);
+  --green:#5CFF3D; --green-d:#0FAE4B; --green-deep:#0A7A38;
+  --tx:#EAF3E8; --tx-lo:rgba(234,243,232,.66); --tx-dim:rgba(234,243,232,.42);
+  --ink:#000;
+  --shadow:0 2px 8px rgba(0,0,0,.7),0 34px 80px -22px rgba(0,0,0,.9),0 0 0 1px var(--line),0 0 70px -20px rgba(92,255,61,.28);
+  --glow-sm:0 0 28px rgba(92,255,61,.3);
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --pad-x:clamp(20px,5vw,64px);
+  --col:1120px;
+  --sec-y:clamp(60px,8vh,112px);
+}
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; overflow-x:clip; }
+body{
+  font-family:'Montserrat',system-ui,sans-serif; font-weight:500;
+  background:
+    radial-gradient(120% 60% at 50% 0%, rgba(15,174,75,.10), transparent 60%),
+    radial-gradient(80% 50% at 100% 100%, rgba(10,122,56,.10), transparent 65%),
+    var(--bg);
+  background-attachment:fixed;
+  color:var(--tx); line-height:1.62; overflow-x:clip;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+body.locked{ overflow:hidden; }
+img{ display:block; max-width:100%; }
+::selection{ background:rgba(92,255,61,.26); color:#fff; }
 
-/* ── PROGRESS ─────────────────────────────────────── */
-#pg { position: fixed; top: 0; left: 0; height: 3px; background: var(--green); width: 0; z-index: 400; transition: width .1s linear; box-shadow: 0 0 12px rgba(92,255,61,.6); }
+/* ambient */
+.fx{ position:fixed; inset:0; pointer-events:none; }
+.fx.grain{ z-index:940; mix-blend-mode:overlay; opacity:.36;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E"); }
+.fx.glow{ z-index:0; background:
+  radial-gradient(55% 40% at 50% -8%, rgba(92,255,61,.10), transparent 70%),
+  radial-gradient(50% 40% at 2% 24%, rgba(15,174,75,.16), transparent 70%),
+  radial-gradient(55% 45% at 100% 62%, rgba(10,122,56,.14), transparent 70%); }
+.fx.vig{ z-index:0; box-shadow:inset 0 0 180px 20px rgba(0,0,0,.5); }
+.particle{ position:fixed; border-radius:50%; background:var(--green); pointer-events:none; z-index:1; animation:drift linear infinite; }
+@keyframes drift{ 0%{transform:translate(0,0);opacity:0} 10%{opacity:.5} 90%{opacity:.4} 100%{transform:translate(var(--dx),-120px);opacity:0} }
 
-/* ── NAV ──────────────────────────────────────────── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 300;
-  padding: 12px 64px; display: flex; align-items: center; justify-content: space-between;
-  transition: background .3s, box-shadow .3s;
-}
-nav.scrolled { background: rgba(7,7,8,.96); box-shadow: 0 2px 40px rgba(0,0,0,.7); border-bottom: 1px solid rgba(92,255,61,.1); }
-.nav-logo { height: 72px; object-fit: contain; mix-blend-mode: screen; }
-.nav-btn {
-  background: var(--green); color: #000; font-weight: 800; font-size: 13px;
-  letter-spacing: .12em; text-transform: uppercase; padding: 13px 28px;
-  text-decoration: none; display: inline-block;
-  transition: box-shadow .2s, transform .15s;
-  box-shadow: 0 0 0 rgba(92,255,61,0);
-}
-.nav-btn:hover { box-shadow: 0 0 24px rgba(92,255,61,.5); transform: translateY(-1px); }
+/* ── TYPE SCALE — the billboard ─────────────────────────────── */
+h1,h2,h3{ font-weight:800; letter-spacing:-.03em; line-height:1.03; }
+.mega{ font-weight:800; font-size:clamp(46px,12vw,124px); line-height:.92; letter-spacing:-.04em; }
+.h-hero{ font-weight:800; font-size:clamp(32px,5.3vw,62px); line-height:1.04; letter-spacing:-.03em; }
+.h-big{ font-weight:800; font-size:clamp(28px,5.4vw,60px); line-height:1.04; letter-spacing:-.03em; }
+.h-mid{ font-weight:800; font-size:clamp(22px,3.2vw,36px); line-height:1.12; letter-spacing:-.025em; }
+.claim{ font-weight:800; font-size:clamp(18px,2.3vw,27px); line-height:1.16; letter-spacing:-.022em; }
+.grn{ color:var(--green); }
+.grn-i{ color:var(--green); font-style:italic; text-shadow:0 0 44px rgba(92,255,61,.32); }
+.glow-t{ text-shadow:0 0 40px rgba(92,255,61,.4),0 0 90px rgba(92,255,61,.15); }
 
-/* ── BUTTONS ──────────────────────────────────────── */
-.btn {
-  display: inline-block; background: var(--green); color: #000;
-  font-weight: 800; font-size: 15px; letter-spacing: .1em; text-transform: uppercase;
-  padding: 17px 44px; text-decoration: none;
-  box-shadow: 0 0 28px rgba(92,255,61,.3);
-  transition: box-shadow .2s, transform .15s;
-}
-.btn:hover { box-shadow: 0 0 40px rgba(92,255,61,.55); transform: translateY(-2px); }
-.btn:active { transform: none; }
-.btn-lg { font-size: 16px; padding: 20px 52px; }
+.eyebrow{ display:inline-flex; align-items:center; gap:9px; font-weight:800; text-transform:uppercase; letter-spacing:.14em; color:var(--green); font-size:clamp(12px,1.5vw,14px); }
+.eyebrow::before{ content:''; width:22px; height:2px; background:var(--green); }
+.eyebrow.c{ justify-content:center; }
+.eyebrow.c::after{ content:''; width:22px; height:2px; background:var(--green); }
 
-/* ── HERO ─────────────────────────────────────────── */
-.hero {
-  min-height: 100vh; display: grid; grid-template-columns: 50% 50%;
-  background: var(--bg); position: relative; overflow: hidden;
-}
-.hero::before {
-  content: ''; position: absolute; left: 0; top: 0; width: 65%; height: 100%;
-  background: radial-gradient(ellipse at 30% 50%, rgba(92,255,61,.06) 0%, transparent 65%);
-  pointer-events: none;
-}
-.hero-left {
-  display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start;
-  padding: 130px 44px 80px 112px; position: relative; z-index: 2;
-}
-.hero-left::before {
-  content: '\201C';
-  font-family: 'Playfair Display', serif;
-  font-size: 420px;
-  line-height: .8;
-  color: rgba(92,255,61,.05);
-  position: absolute;
-  top: 60px; left: 40px;
-  pointer-events: none;
-  z-index: 0;
-  user-select: none;
-}
-.hero-h {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(50px, 6.5vw, 98px);
-  font-weight: 900; line-height: 1.06; letter-spacing: -.028em;
-  color: var(--white); margin: 20px 0 28px;
-}
-.hero-sub {
-  font-size: clamp(18px, 1.6vw, 22px); line-height: 1.75; color: var(--muted);
-  max-width: 490px; margin-bottom: 44px;
-}
-.hero-badges { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 48px; }
-.hero-badge { font-size: 12px; color: var(--dim); display: flex; align-items: center; gap: 7px; }
-.hero-badge::before { content: ''; width: 5px; height: 5px; background: var(--green); display: block; flex-shrink: 0; }
-.hero-right { position: relative; overflow: hidden; }
-.hero-right img {
-  width: 100%; height: 100%; object-fit: cover; object-position: top center;
-  transform: scaleX(-1);
-}
-.hero-fade {
-  position: absolute; inset: 0;
-  background: linear-gradient(to right, var(--bg) 0%, rgba(7,7,8,.3) 45%, transparent 100%);
-}
+.body{ font-size:clamp(14.5px,1.2vw,17px); color:var(--tx-lo); line-height:1.68; }
+.body strong{ color:var(--tx); font-weight:700; }
+.rule{ width:54px; height:4px; background:linear-gradient(90deg,var(--green),var(--green-d)); box-shadow:var(--glow-sm); border-radius:2px; }
 
-/* ticker */
-.hero-ticker {
-  position: absolute; bottom: 0; left: 0; right: 0; z-index: 10;
-  background: rgba(7,7,8,.9); border-top: 1px solid rgba(92,255,61,.18);
-  padding: 18px 0; overflow: hidden;
-}
-.ticker-track {
-  display: flex; align-items: center; gap: 56px;
-  width: max-content; animation: ticker 40s linear infinite;
-}
-.ticker-track:hover { animation-play-state: paused; }
-.t-item { font-size: 12px; font-weight: 800; letter-spacing: .32em; text-transform: uppercase; color: var(--green); white-space: nowrap; }
-.t-dot  { color: rgba(92,255,61,.28); font-size: 8px; }
-@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+/* layout */
+main{ position:relative; z-index:3; }
+.sec{ padding:var(--sec-y) var(--pad-x); position:relative; }
+.wrap{ max-width:var(--col); margin:0 auto; }
+.narrow{ max-width:780px; margin:0 auto; }
+.center{ text-align:center; }
+.center .rule{ margin:22px auto 0; }
+.sec.alt{ background:linear-gradient(180deg, rgba(6,17,10,.4), rgba(15,174,75,.06) 50%, rgba(6,17,10,.4)), var(--bg-1);
+  border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
 
-/* ── 3D DEVICE MOCKUP ────────────────────────────── */
-.device-wrap { perspective: 1100px; padding: 8px 0 40px; position: relative; }
-.device-wrap::before {
-  content: ''; position: absolute; bottom: 24px; left: 10%; right: 10%;
-  height: 60px; background: rgba(92,255,61,.08); filter: blur(28px);
-  border-radius: 50%; pointer-events: none;
-}
-.device {
-  max-width: 500px; width: 100%; margin: 0 auto;
-  transform: rotateX(2deg) rotateY(-18deg);
-  transform-style: preserve-3d;
-  filter: drop-shadow(-18px 28px 52px rgba(0,0,0,.85));
-  transition: transform .5s cubic-bezier(.25,.46,.45,.94);
-}
-.device-wrap:hover .device { transform: rotateX(1deg) rotateY(-8deg); }
-.device-lid {
-  background: linear-gradient(150deg, #303032 0%, #1e1e20 100%);
-  border-radius: 12px 12px 0 0; padding: 9px 9px 5px;
-  border: 1px solid rgba(255,255,255,.12); border-bottom: none; position: relative;
-  box-shadow: 0 -2px 30px rgba(92,255,61,.07), inset 0 1px 0 rgba(255,255,255,.07);
-}
-.device-lid::before {
-  content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-  width: 7px; height: 4px; background: #0f0f0f; border-radius: 0 0 3px 3px;
-}
-.device-screen { background: #070708; border-radius: 4px; overflow: hidden; aspect-ratio: 16/10; }
-.device-hinge { height: 4px; background: linear-gradient(to bottom, #111, #232325); border-left: 1px solid rgba(255,255,255,.05); border-right: 1px solid rgba(255,255,255,.05); }
-.device-base {
-  background: linear-gradient(to bottom, #28282a, #1e1e20);
-  height: 28px; border-radius: 0 0 8px 8px;
-  border: 1px solid rgba(255,255,255,.07); border-top: none;
-  display: flex; align-items: center; justify-content: center; position: relative;
-}
-.device-base::before { content: ''; width: 58%; height: 5px; background: rgba(255,255,255,.04); border-radius: 2px; }
-.device-base::after {
-  content: ''; position: absolute; bottom: -16px; left: 6%; right: 6%;
-  height: 16px; background: rgba(0,0,0,.45); border-radius: 0 0 60% 60%; filter: blur(10px);
-}
-/* screen UI primitives */
-.ds-bar { background: #0c180c; padding: 7px 11px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(92,255,61,.1); }
-.ds-dots { display: flex; gap: 4px; }
-.ds-dot { width: 8px; height: 8px; border-radius: 50%; }
-.ds-title { font-size: 7.5px; font-weight: 800; letter-spacing: .2em; color: rgba(92,255,61,.65); text-transform: uppercase; }
-.ds-body { display: grid; height: calc(100% - 30px); }
-.ds-sidebar { background: #060d06; border-right: 1px solid rgba(92,255,61,.07); padding: 10px 8px; overflow: hidden; }
-.ds-label { font-size: 6.5px; letter-spacing: .2em; color: rgba(92,255,61,.4); text-transform: uppercase; margin-bottom: 8px; }
-.ds-row { padding: 5px 7px; border-radius: 3px; margin-bottom: 2px; }
-.ds-row.active { background: rgba(92,255,61,.08); border-left: 2px solid #5CFF3D; }
-.ds-row-t { font-size: 7px; font-weight: 700; color: rgba(255,255,255,.85); }
-.ds-row-t.dim { font-weight: 400; color: rgba(255,255,255,.35); }
-.ds-main { padding: 12px 10px; overflow: hidden; }
+/* reveal */
+.rv{ opacity:0; transform:translateY(24px); transition:opacity .8s var(--ease),transform .8s var(--ease); }
+.rv.in{ opacity:1; transform:none; }
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
 
-/* ── VIDEO ────────────────────────────────────────── */
-.video-sec { background: var(--bg2); padding: 100px 80px; text-align: center; }
-.video-h { font-family: 'Playfair Display', serif; font-size: clamp(28px,3.5vw,50px); font-weight: 900; color: var(--white); margin: 18px 0 48px; line-height: 1.15; }
-.video-frame {
-  max-width: 880px; margin: 0 auto; position: relative; cursor: pointer;
-  border: 1px solid rgba(92,255,61,.2);
-  transition: border-color .25s, box-shadow .25s;
-}
-.video-frame:hover { border-color: rgba(92,255,61,.5); box-shadow: 0 0 40px rgba(92,255,61,.12); }
-.video-frame img { width: 100%; }
+/* ── CTA ───────────────────────────────────────────────────── */
+.cta{ display:inline-flex; flex-direction:column; align-items:center; gap:4px;
+  background:var(--green); color:var(--ink); padding:20px clamp(30px,4.4vw,58px);
+  border-radius:4px; border:none; text-decoration:none; cursor:pointer;
+  position:relative; isolation:isolate; max-width:min(580px,92vw); font-family:inherit;
+  box-shadow:0 14px 38px -8px rgba(92,255,61,.5),0 0 0 1px rgba(92,255,61,.6),var(--glow-sm);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease); }
+.cta::after{ content:''; position:absolute; inset:0; z-index:-1; border-radius:4px;
+  background:linear-gradient(105deg,transparent 32%,rgba(255,255,255,.55) 48%,transparent 64%);
+  background-size:280% 100%; background-position:130% 0; transition:background-position .7s var(--ease); }
+.cta:hover{ transform:translateY(-3px); box-shadow:0 22px 54px -10px rgba(92,255,61,.62),0 0 0 1px rgba(92,255,61,.8),0 0 48px rgba(92,255,61,.44); }
+.cta:hover::after{ background-position:-40% 0; }
+.cta:focus-visible{ outline:3px solid #fff; outline-offset:3px; }
+.cta:active{ transform:translateY(-1px); }
+.cta-main{ font-weight:800; text-transform:uppercase; letter-spacing:.02em; font-size:clamp(16px,2.4vw,22px); display:flex; align-items:center; gap:.4em; }
+.cta-main b{ transition:transform .3s var(--ease); }
+.cta:hover .cta-main b{ transform:translateX(5px); }
+.cta-sub{ font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:rgba(0,0,0,.72); }
+.cta-wrap{ margin-top:34px; }
 
-/* ── STATS ────────────────────────────────────────── */
-.stats {
-  display: grid; grid-template-columns: repeat(4,1fr);
-  background: var(--bg3); border-top: 1px solid rgba(92,255,61,.12);
-  border-bottom: 1px solid rgba(92,255,61,.12);
-}
-.stat { padding: 56px 24px; text-align: center; border-right: 1px solid rgba(255,255,255,.06); }
-.stat:last-child { border-right: none; }
-.stat-n {
-  font-family: 'Bebas Neue', cursive; font-size: clamp(64px,6vw,88px); line-height: 1;
-  color: var(--green); text-shadow: 0 0 40px rgba(92,255,61,.35);
-}
-.stat-l { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin-top: 10px; }
+/* ── TOP ───────────────────────────────────────────────────── */
+.top{ display:flex; align-items:center; justify-content:space-between; position:relative; padding:20px var(--pad-x); border-bottom:1px solid var(--line-2); }
+.brand{ display:flex; align-items:center; gap:13px; text-decoration:none; }
+.brand img{ height:52px; width:auto; object-fit:contain; mix-blend-mode:screen; }
+.brand span{ font-weight:800; font-size:clamp(16px,2.2vw,21px); color:var(--tx); letter-spacing:-.01em; }
+.brand span b{ color:var(--green); }
+.top .login{ font-weight:800; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--tx-dim); text-decoration:none; transition:color .25s var(--ease); flex-shrink:0; }
+.top .login:hover{ color:var(--green); }
+.top .login:focus-visible{ outline:2px solid var(--green); outline-offset:4px; }
 
-/* ── COURSE INTRO ─────────────────────────────────── */
-.course-sec { background: var(--bg); padding: 110px 80px; }
-.course-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; }
-.course-h {
-  font-family: 'Playfair Display', serif; font-size: clamp(34px,3.8vw,56px);
-  font-weight: 900; line-height: 1.12; letter-spacing: -.02em;
-  color: var(--white); margin: 18px 0 32px;
-}
-.feature-list { list-style: none; margin-bottom: 44px; }
-.feature-list li {
-  display: flex; align-items: flex-start; gap: 14px;
-  padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,.07);
-  font-size: clamp(14px,1.2vw,16px); color: rgba(255,255,255,.75); line-height: 1.55;
-}
-.chk { color: var(--green); flex-shrink: 0; font-size: 15px; margin-top: 1px; }
+/* ── HERO ──────────────────────────────────────────────────── */
+.hero{ padding:clamp(30px,4vh,48px) var(--pad-x) clamp(38px,6vh,60px); overflow:hidden; }
+.hero .wrap{ position:relative; }
+.badge-row{ text-align:center; margin-bottom:clamp(20px,4vh,34px); }
+.free-badge{ display:inline-flex; align-items:center; gap:0; font-weight:800; text-transform:uppercase; letter-spacing:.06em; box-shadow:0 8px 24px -8px rgba(92,255,61,.5); }
+.free-badge .a{ background:var(--green); color:#000; padding:9px 16px; font-size:clamp(16px,2.7vw,25px); }
+.free-badge .b{ background:transparent; color:var(--green); border:2px solid var(--green); border-left:none; padding:7px 16px; font-size:clamp(12px,1.9vw,16px); letter-spacing:.16em; }
+.hero-grid{ display:grid; grid-template-columns:1.06fr .94fr; gap:clamp(28px,5vw,64px); align-items:center; }
+.hero-copy h1{ margin-bottom:0; }
+.hero-copy .paren{ margin-top:18px; font-style:italic; font-weight:600; font-size:clamp(15px,1.5vw,19px); color:var(--tx-lo); max-width:36ch; }
+.hero-copy .hook{ margin-top:16px; font-size:clamp(13.5px,1.15vw,15.5px); color:var(--tx-dim); max-width:40ch; }
+.hero-copy .cta-wrap{ margin-top:26px; }
 
-/* ── MODULES ──────────────────────────────────────── */
-.modules-sec { background: var(--bg4); padding: 110px 80px; }
-.mods-grid {
-  display: grid; grid-template-columns: repeat(4,1fr);
-  gap: 16px; margin-top: 64px;
-}
-.mod-card {
-  background: var(--bg); padding: 36px 30px;
-  border: 1px solid rgba(255,255,255,.08);
-  border-top: 3px solid rgba(92,255,61,.2);
-  transition: border-top-color .25s, transform .25s, box-shadow .25s;
-}
-.mod-card:hover {
-  border-top-color: var(--green);
-  transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(0,0,0,.4), 0 0 20px rgba(92,255,61,.06);
-}
-.mod-n { font-family: 'Bebas Neue', cursive; font-size: 48px; color: rgba(92,255,61,.25); line-height: 1; }
-.mod-t { font-size: clamp(15px,1.2vw,17px); font-weight: 700; color: var(--white); margin: 10px 0 12px; line-height: 1.35; }
-.mod-d { font-size: clamp(13px,1vw,14px); line-height: 1.7; color: rgba(255,255,255,.55); }
+.hero-photo{ position:relative; }
+.hero-photo .frame{ position:relative; border:1px solid rgba(92,255,61,.5); box-shadow:var(--shadow); overflow:hidden; aspect-ratio:4/5; }
+.hero-photo img{ width:100%; height:100%; object-fit:cover; object-position:50% 10%; filter:grayscale(.4) contrast(1.04) brightness(.95); }
+.hero-photo .frame::after{ content:''; position:absolute; inset:0; background:linear-gradient(200deg,rgba(92,255,61,.1),transparent 38%,rgba(0,0,0,.5)); }
+.hero-photo .cnr{ position:absolute; width:24px; height:24px; border:2px solid var(--green); z-index:3; }
+.hero-photo .c1{ top:-5px; left:-5px; border-right:0; border-bottom:0; }
+.hero-photo .c2{ bottom:-5px; right:-5px; border-left:0; border-top:0; }
+.hero-photo .stamp{ position:absolute; right:-10px; bottom:22px; z-index:4; background:var(--green); color:#000; font-weight:800; font-size:11px; letter-spacing:.14em; text-transform:uppercase; padding:9px 15px; box-shadow:0 10px 24px -6px rgba(92,255,61,.5); }
 
-/* ── BONUSES ──────────────────────────────────────── */
-.bonuses-sec { background: var(--bg2); padding: 110px 80px; }
-.bonuses-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; margin-top: 64px; }
-.bonus-list { list-style: none; }
-.bonus-li { display: flex; align-items: flex-start; gap: 14px; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,.07); }
-.bonus-li:last-child { border-bottom: none; }
-.b-badge {
-  width: 32px; height: 32px; flex-shrink: 0;
-  background: rgba(92,255,61,.12); border: 1px solid rgba(92,255,61,.35);
-  color: var(--green); font-size: 12px; font-weight: 800;
-  display: flex; align-items: center; justify-content: center;
-}
-.b-name { font-weight: 700; font-size: clamp(13px,1.1vw,15px); color: var(--white); line-height: 1.3; }
-.b-sub  { font-size: clamp(12px,0.9vw,13px); color: var(--muted); margin-top: 4px; line-height: 1.5; }
-.bonus-bar {
-  margin-top: 28px; padding: 24px 28px;
-  background: rgba(92,255,61,.06); border: 1px solid rgba(92,255,61,.25);
-  display: flex; align-items: center; justify-content: space-between; gap: 16px;
-}
-.b-label-wrap .b-label-title { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
-.b-label-wrap .b-label-sub { font-size: 12px; color: var(--dim); margin-top: 4px; }
-.b-total { font-family: 'Bebas Neue', cursive; font-size: clamp(40px,4vw,56px); color: #F5C842; text-shadow: 0 0 30px rgba(245,200,66,.4); white-space: nowrap; }
+.facts{ display:flex; justify-content:center; flex-wrap:wrap; margin:clamp(30px,5vh,44px) auto 0; max-width:700px; border:1px solid var(--line); background:linear-gradient(180deg, rgba(15,174,75,.1), rgba(10,122,56,.05)); }
+.fact{ flex:1 1 130px; padding:16px 12px; text-align:center; border-right:1px solid var(--line); }
+.fact:last-child{ border-right:none; }
+.fact b{ font-weight:800; font-size:clamp(22px,3.2vw,32px); color:var(--green); display:block; line-height:1; }
+.fact span{ font-size:10px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--tx-dim); margin-top:6px; display:block; }
 
-/* ── ABOUT ────────────────────────────────────────── */
-.about-sec { background: var(--bg); padding: 110px 80px; }
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-.about-h { font-family: 'Playfair Display', serif; font-size: clamp(34px,3.8vw,54px); font-weight: 900; line-height: 1.12; color: var(--white); margin: 18px 0 28px; }
-.about-p { font-size: clamp(15px,1.2vw,17px); line-height: 1.8; color: var(--muted); margin-bottom: 20px; }
-.creds { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 36px; }
-.cred {
-  background: rgba(92,255,61,.06); border: 1px solid rgba(92,255,61,.2);
-  padding: 10px 16px; font-size: 11px; letter-spacing: .07em;
-  text-transform: uppercase; color: rgba(255,255,255,.65);
+/* ── floating deco (fills dead space, desktop) ─────────────── */
+.deco{ position:absolute; inset:0; pointer-events:none; z-index:0; overflow:hidden; }
+.deco span{ position:absolute; font-weight:800; font-size:12px; letter-spacing:.1em; text-transform:uppercase;
+  color:rgba(92,255,61,.55); border:1px solid rgba(92,255,61,.3); padding:6px 10px; border-radius:3px;
+  background:rgba(92,255,61,.04); animation:floaty 7s var(--ease) infinite; }
+.deco .r{ border-radius:50%; width:34px; height:34px; padding:0; border:1px solid rgba(92,255,61,.3); }
+.deco .dot{ width:7px; height:7px; padding:0; border:none; background:var(--green); border-radius:50%; box-shadow:0 0 12px var(--green); }
+@keyframes floaty{ 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-16px) } }
+@media (max-width:1180px){ .deco{ display:none; } }
+
+/* wave */
+.wave{ display:flex; align-items:center; justify-content:center; gap:4px; height:52px; }
+.wave i{ width:3px; border-radius:2px; background:linear-gradient(var(--green),var(--green-d)); height:14px; transform-origin:center; animation:eq 1.5s var(--ease) infinite; }
+@keyframes eq{ 0%,100%{ transform:scaleY(.34) } 50%{ transform:scaleY(1) } }
+
+/* rails */
+.rails{ position:absolute; inset:0; pointer-events:none; z-index:0; }
+.rails i{ position:absolute; top:8%; bottom:8%; width:2px; background:repeating-linear-gradient(transparent 0 7px,rgba(92,255,61,.2) 7px 11px); }
+.rails i:first-child{ left:3%; } .rails i:last-child{ right:3%; }
+.rails i::before{ content:''; position:absolute; left:-3px; width:8px; height:8px; border-radius:50%; background:var(--green); box-shadow:0 0 12px var(--green); animation:sig 6s var(--ease) infinite; }
+.rails i:last-child::before{ animation-delay:-3s; }
+@keyframes sig{ 0%{top:0;opacity:0} 8%{opacity:1} 92%{opacity:1} 100%{top:100%;opacity:0} }
+@media (max-width:1240px){ .rails{ display:none; } }
+
+/* ── WARNING ───────────────────────────────────────────────── */
+.warning .alert{ display:inline-flex; align-items:center; gap:14px; }
+.warning .alert svg{ width:clamp(28px,4.4vw,48px); height:clamp(28px,4.4vw,48px); flex-shrink:0; }
+.warning .mega{ color:var(--green); }
+.warning .line{ margin:22px auto 0; max-width:32ch; font-weight:800; font-size:clamp(18px,2.7vw,31px); line-height:1.28; letter-spacing:-.02em; }
+.warning .line .grn{ color:var(--green); }
+.warning .body{ margin:20px auto 0; max-width:52ch; }
+
+/* ── FOR YOU IF ────────────────────────────────────────────── */
+.foryou-grid{ display:grid; grid-template-columns:160px 1fr; gap:clamp(24px,5vw,52px); align-items:start; margin-top:44px; text-align:left; }
+.clip svg{ width:100%; height:auto; overflow:visible; animation:bob 6s var(--ease) infinite; }
+@keyframes bob{ 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-10px) } }
+.checklist{ display:grid; gap:0; }
+.ck{ display:flex; gap:16px; align-items:flex-start; padding:20px 2px; border-bottom:1px solid var(--line-2); }
+.ck:first-child{ border-top:1px solid var(--line-2); }
+.ck svg{ width:26px; height:26px; flex-shrink:0; margin-top:1px; }
+.ck svg circle{ stroke:var(--green); stroke-width:1.5; fill:rgba(92,255,61,.09); }
+.ck svg path{ stroke:var(--green); stroke-width:2.4; fill:none; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:26; stroke-dashoffset:26; transition:stroke-dashoffset .5s var(--ease); }
+.ck.in svg path{ stroke-dashoffset:0; }
+.ck p{ font-size:clamp(15px,1.45vw,19px); color:var(--tx); font-weight:700; line-height:1.42; letter-spacing:-.01em; }
+.foryou .close-line{ margin-top:30px; font-weight:800; font-size:clamp(16px,1.7vw,21px); }
+.foryou .close-line em{ font-style:normal; color:var(--green); }
+
+/* reframe strip */
+.reframe-strip .h-big{ max-width:20ch; margin:0 auto; }
+.reframe-strip .body{ margin:18px auto 0; max-width:38ch; }
+
+/* ── CHALLENGE ─────────────────────────────────────────────── */
+.challenge .h-big{ max-width:16ch; margin:0 auto; }
+.challenge .body{ max-width:44ch; margin:22px auto 0; }
+
+/* ── MENTOR ────────────────────────────────────────────────── */
+.mentor{ overflow:hidden; }
+.mentor-grid{ display:grid; grid-template-columns:.88fr 1.12fr; gap:clamp(28px,5vw,58px); align-items:center; text-align:left; }
+.mentor-photo{ position:relative; border:1px solid rgba(92,255,61,.45); box-shadow:var(--shadow); overflow:hidden; aspect-ratio:5/6; }
+.mentor-photo img{ width:100%; height:100%; object-fit:cover; object-position:50% 20%; filter:grayscale(.35) contrast(1.04) brightness(.96); }
+.mentor-photo::after{ content:''; position:absolute; inset:0; background:linear-gradient(160deg,rgba(92,255,61,.09),transparent 40%,rgba(0,0,0,.5)); }
+.mentor-body .eyebrow{ margin-bottom:12px; }
+.mentor-body h2{ font-size:clamp(34px,6vw,70px); line-height:1; }
+.mentor-body p{ margin-top:16px; color:var(--tx-lo); font-size:clamp(14.5px,1.2vw,16.5px); max-width:52ch; }
+.mentor-body p strong{ color:var(--tx); font-weight:700; }
+.mentor-body .sign{ font-weight:800; font-style:italic; font-size:19px; color:var(--green); margin-top:16px; }
+.mentor-body .verse{ margin-top:22px; padding-left:18px; border-left:3px solid var(--green); font-style:italic; font-weight:700; font-size:clamp(15px,1.5vw,18px); color:var(--tx); max-width:40ch; }
+.mentor-body .verse cite{ display:block; margin-top:8px; font-style:normal; font-weight:800; font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--green); }
+.chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
+.chip{ font-weight:800; font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--tx-lo); padding:8px 13px; border:1px solid var(--line); background:rgba(15,174,75,.1); }
+
+/* ── DISCOVER + 3D device ──────────────────────────────────── */
+.discover-grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(34px,6vw,72px); align-items:center; margin-top:46px; text-align:left; }
+.shift{ padding:18px 0; border-bottom:1px solid var(--line-2); }
+.shift:last-of-type{ border-bottom:none; }
+.shift .sn{ font-weight:800; font-size:12px; letter-spacing:.14em; color:var(--green); text-transform:uppercase; }
+.shift h3{ margin-top:6px; font-size:clamp(16px,1.8vw,21px); line-height:1.24; }
+.shift p{ margin-top:8px; font-size:clamp(13px,1.05vw,14.5px); color:var(--tx-lo); }
+.shift p .loop{ color:var(--green); font-style:italic; }
+.fw-line{ margin-top:22px; font-size:13px; color:var(--tx-dim); }
+.fw-line b{ color:var(--green); }
+
+.stage{ perspective:1400px; display:flex; justify-content:center; }
+.device{ width:min(460px,92%); transform-style:preserve-3d; transform:rotateX(6deg) rotateY(-17deg); transition:transform .5s var(--ease); animation:devfloat 6s var(--ease) infinite; filter:drop-shadow(-22px 32px 42px rgba(0,0,0,.7)); }
+@keyframes devfloat{ 0%,100%{ transform:rotateX(6deg) rotateY(-17deg) translateY(0) } 50%{ transform:rotateX(6deg) rotateY(-17deg) translateY(-12px) } }
+.device .lid{ background:linear-gradient(150deg,#101a10,#0a0f0a); border:1px solid rgba(92,255,61,.26); border-bottom:none; border-radius:12px 12px 0 0; padding:9px 9px 5px; box-shadow:inset 0 1px 0 rgba(92,255,61,.1),0 -2px 30px rgba(92,255,61,.06); }
+.device .scr{ background:#04060A; border-radius:4px; overflow:hidden; aspect-ratio:16/10; }
+.device .base{ height:24px; background:linear-gradient(#18201a,#0c120c); border:1px solid rgba(92,255,61,.14); border-top:none; border-radius:0 0 10px 10px; position:relative; }
+.device .base::after{ content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:44%; height:5px; background:rgba(92,255,61,.09); border-radius:0 0 5px 5px; }
+.device .tb{ background:#0a140a; padding:7px 11px; display:flex; align-items:center; gap:5px; border-bottom:1px solid rgba(92,255,61,.12); }
+.device .tb i{ width:8px; height:8px; border-radius:50%; background:rgba(92,255,61,.5); }
+.device .tb i:nth-child(2){ background:rgba(92,255,61,.3); } .device .tb i:nth-child(3){ background:rgba(92,255,61,.18); }
+.device .tb span{ margin-left:auto; margin-right:36px; font-size:7px; font-weight:800; letter-spacing:.13em; color:rgba(92,255,61,.65); text-transform:uppercase; white-space:nowrap; }
+.device .ui{ display:grid; grid-template-columns:102px 1fr; height:calc(100% - 24px); }
+.device .side{ background:#060d06; border-right:1px solid rgba(92,255,61,.09); padding:9px 8px; }
+.device .side em{ font-style:normal; font-size:7px; font-weight:800; letter-spacing:.1em; color:rgba(92,255,61,.5); text-transform:uppercase; display:block; margin-bottom:7px; }
+.device .row{ font-size:8px; color:rgba(234,243,232,.42); padding:4px 6px; border-radius:3px; margin-bottom:2px; }
+.device .row.on{ color:#fff; font-weight:700; background:rgba(92,255,61,.12); border-left:2px solid var(--green); }
+.device .main{ padding:11px 12px; }
+.device .vid{ background:linear-gradient(135deg,#0b160b,#0f1f0f); border:1px solid rgba(92,255,61,.2); border-radius:5px; height:54px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+.device .vid::before{ content:''; position:absolute; inset:0; background:radial-gradient(circle at 50% 50%,rgba(92,255,61,.08),transparent 70%); }
+.device .vid .play{ width:22px; height:22px; border-radius:50%; background:var(--green); display:flex; align-items:center; justify-content:center; box-shadow:0 0 14px rgba(92,255,61,.5); }
+.device .vid .play::after{ content:''; border-top:5px solid transparent; border-bottom:5px solid transparent; border-left:8px solid #000; margin-left:2px; }
+.device .prog{ margin-top:9px; }
+.device .prog .bar{ height:4px; background:rgba(234,243,232,.1); border-radius:3px; overflow:hidden; }
+.device .prog .bar i{ display:block; width:28%; height:100%; background:linear-gradient(90deg,var(--green),var(--green-d)); box-shadow:0 0 8px rgba(92,255,61,.55); }
+.device .prog span{ font-size:7px; color:rgba(92,255,61,.65); font-weight:800; letter-spacing:.06em; display:block; margin-top:4px; }
+.device .pills{ display:grid; grid-template-columns:1fr 1fr; gap:5px; margin-top:9px; }
+.device .pill{ background:rgba(92,255,61,.07); border:1px solid rgba(92,255,61,.16); border-radius:4px; padding:6px; text-align:center; }
+.device .pill b{ font-size:13px; font-weight:800; color:var(--green); display:block; line-height:1; }
+.device .pill span{ font-size:6.5px; color:rgba(234,243,232,.4); }
+.device .seal{ position:absolute; top:-20px; right:-20px; width:54px; height:54px; border-radius:50%; background:var(--green); color:#000; display:flex; flex-direction:column; align-items:center; justify-content:center; box-shadow:0 10px 26px -6px rgba(92,255,61,.55); z-index:5; transform:translateZ(40px); }
+.device .seal b{ font-size:13px; font-weight:800; line-height:1; }
+.device .seal span{ font-size:6px; font-weight:800; letter-spacing:.08em; }
+
+/* ── FINAL ─────────────────────────────────────────────────── */
+.final .body{ max-width:42ch; margin:22px auto 0; }
+.final .micro{ margin-top:20px; font-weight:800; font-size:11.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--tx-dim); }
+
+/* ── FOOTER ────────────────────────────────────────────────── */
+footer{ background:#000; padding:44px var(--pad-x); border-top:1px solid var(--line-2); position:relative; z-index:3; text-align:center; }
+.foot-brand{ font-weight:800; font-size:15px; color:var(--tx-lo); }
+.foot-brand b{ color:var(--green); }
+.foot-lang{ margin-top:9px; font-weight:800; font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--green); opacity:.6; }
+.foot-links{ display:flex; gap:20px; justify-content:center; margin-top:14px; }
+.foot-links a{ font-weight:800; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--tx-dim); text-decoration:none; transition:color .25s var(--ease); }
+.foot-links a:hover{ color:var(--green); }
+.disclaimer{ margin:22px auto 0; padding-top:20px; border-top:1px solid var(--line-2); font-size:11.5px; line-height:1.7; color:var(--tx-dim); max-width:78ch; }
+.foot-copy{ margin-top:12px; font-size:11.5px; color:var(--tx-dim); }
+
+/* ── MODAL ─────────────────────────────────────────────────── */
+.modal{ position:fixed; inset:0; z-index:1000; display:none; }
+.modal.open{ display:grid; place-items:center; padding:20px; }
+.modal-bg{ position:absolute; inset:0; background:rgba(0,0,0,.82); backdrop-filter:blur(7px); animation:fade .25s var(--ease); }
+@keyframes fade{ from{ opacity:0 } to{ opacity:1 } }
+.modal-card{ position:relative; z-index:2; width:min(452px,100%); text-align:left;
+  background:linear-gradient(160deg,var(--bg-3),var(--bg-2)); border:1px solid var(--green);
+  padding:clamp(26px,5vw,40px); box-shadow:var(--shadow),inset 0 1px 0 rgba(92,255,61,.16);
+  animation:pop .32s var(--ease); max-height:92vh; overflow-y:auto; }
+@keyframes pop{ from{ opacity:0; transform:translateY(16px) scale(.97) } to{ opacity:1; transform:none } }
+.modal-card::before{ content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,transparent,var(--green),transparent); }
+.modal-x{ position:absolute; top:12px; right:12px; width:34px; height:34px; border:1px solid var(--line); background:rgba(0,0,0,.4); color:var(--tx-lo);
+  border-radius:3px; cursor:pointer; font-size:18px; line-height:1; display:flex; align-items:center; justify-content:center; transition:color .2s var(--ease),border-color .2s var(--ease); }
+.modal-x:hover{ color:var(--green); border-color:var(--green); }
+.modal-x:focus-visible{ outline:2px solid var(--green); outline-offset:2px; }
+.modal-logo{ display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:14px; }
+.modal-logo img{ height:44px; width:auto; mix-blend-mode:screen; }
+.modal-logo span{ font-weight:800; font-size:14px; color:var(--tx); }
+.modal-logo span b{ color:var(--green); }
+.modal-card h3{ text-align:center; font-size:clamp(17px,3.4vw,21px); line-height:1.28; letter-spacing:-.02em; margin-bottom:20px; }
+.modal-card h3 em{ font-style:normal; color:var(--green); }
+.field{ margin-bottom:13px; }
+.field label{ display:block; font-weight:800; font-size:11px; letter-spacing:.13em; text-transform:uppercase; color:var(--tx-dim); margin-bottom:7px; }
+.field input{ width:100%; padding:14px 15px; background:rgba(0,0,0,.55); border:1px solid var(--line); color:var(--tx); font-family:inherit; font-size:15px; border-radius:2px; transition:border-color .25s var(--ease),box-shadow .25s var(--ease),background-color .25s var(--ease); }
+.field input::placeholder{ color:var(--tx-dim); }
+.field input:hover{ border-color:rgba(92,255,61,.4); }
+.field input:focus{ outline:none; border-color:var(--green); background:rgba(0,0,0,.8); box-shadow:0 0 0 3px rgba(92,255,61,.16); }
+.hp{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap; border:0; }
+.modal-card .cta{ display:flex; width:100%; margin-top:6px; padding-left:18px; padding-right:18px; }
+.modal-card .cta-main{ font-size:clamp(14px,3.4vw,17px); flex-wrap:wrap; justify-content:center; gap:.3em; }
+.consent{ margin-top:14px; font-size:11px; line-height:1.55; color:var(--tx-dim); text-align:center; }
+.card-trust{ margin-top:10px; font-weight:800; font-size:10px; letter-spacing:.11em; text-transform:uppercase; color:var(--tx-dim); text-align:center; }
+.modal-card.sent .form-live{ display:none; }
+.form-done{ display:none; text-align:center; padding:8px 0; }
+.modal-card.sent .form-done{ display:block; }
+.form-done .tick{ width:50px; height:50px; margin:0 auto 14px; border-radius:50%; border:1.5px solid var(--green); display:flex; align-items:center; justify-content:center; box-shadow:var(--glow-sm); }
+.form-done .tick svg{ width:23px; height:23px; stroke:var(--green); stroke-width:2.5; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+.form-done h4{ font-weight:800; font-size:20px; }
+.form-done p{ margin-top:8px; font-size:14px; color:var(--tx-lo); }
+
+/* ── RESPONSIVE ────────────────────────────────────────────── */
+@media (max-width:900px){
+  .hero-grid{ grid-template-columns:1fr; gap:22px; }
+  .hero-photo{ order:-1; max-width:300px; margin:0 auto; width:100%; }
+  .hero-photo .frame{ aspect-ratio:1/1; }
+  .hero-photo img{ object-position:50% 8%; }
+  .hero-copy{ text-align:center; }
+  .hero-copy .paren,.hero-copy .hook{ margin-left:auto; margin-right:auto; }
+  .discover-grid{ grid-template-columns:1fr; gap:32px; }
+  .stage{ order:-1; }
+  .mentor-grid{ grid-template-columns:1fr; gap:24px; }
+  .mentor-photo{ max-width:360px; margin:0 auto; width:100%; }
+  .foryou-grid{ grid-template-columns:1fr; gap:18px; }
+  .clip{ width:120px; margin:0 auto; }
 }
-
-/* ── COMMUNITY ────────────────────────────────────── */
-.community-sec { background: var(--bg4); padding: 110px 80px; text-align: center; }
-.community-h { font-family: 'Playfair Display', serif; font-size: clamp(34px,4.2vw,62px); font-weight: 900; color: var(--white); margin: 18px 0 16px; line-height: 1.1; }
-.zoom-wrap { position: relative; max-width: 980px; margin: 52px auto 0; }
-.zoom-wrap img { width: 100%; border: 1px solid rgba(92,255,61,.2); }
-.zoom-bar { position: absolute; bottom: 0; left: 0; right: 0; padding: 90px 44px 32px; background: linear-gradient(to top, #070708 0%, rgba(7,7,8,.97) 35%, rgba(7,7,8,.82) 58%, rgba(7,7,8,.4) 78%, transparent 100%); }
-
-/* ── TESTIMONIALS ─────────────────────────────────── */
-.testi-sec { background: var(--bg2); padding: 110px 80px; }
-.testi-h { font-family: 'Playfair Display', serif; font-size: clamp(34px,4vw,58px); font-weight: 900; color: var(--white); margin: 18px 0 60px; line-height: 1.12; }
-.testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-.testi-card { background: var(--bg3); padding: 36px 32px; border: 1px solid rgba(255,255,255,.07); border-top: 2px solid rgba(92,255,61,.3); }
-.stars { font-size: 17px; color: var(--green); margin-bottom: 18px; letter-spacing: 2px; }
-.testi-q { font-size: clamp(14px,1.1vw,16px); line-height: 1.75; color: rgba(255,255,255,.7); font-style: italic; margin-bottom: 28px; }
-.testi-name { font-weight: 800; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--white); }
-.testi-role { font-size: 12px; color: var(--muted); margin-top: 4px; }
-
-/* ── FAQ ──────────────────────────────────────────── */
-.faq-sec { background: var(--bg); padding: 110px 80px; }
-.faq-h { font-family: 'Playfair Display', serif; font-size: clamp(34px,4vw,56px); font-weight: 900; color: var(--white); margin: 18px auto 60px; line-height: 1.12; max-width: 760px; text-align: center; }
-.faq-list { max-width: 780px; margin: 0 auto; }
-.faq-item { border-bottom: 1px solid rgba(255,255,255,.09); }
-.faq-btn {
-  width: 100%; display: flex; align-items: center; justify-content: space-between;
-  padding: 22px 0; background: none; border: none; color: var(--white);
-  font-family: 'DM Sans', sans-serif; font-size: clamp(15px,1.2vw,18px); font-weight: 600;
-  cursor: pointer; text-align: left; gap: 16px; transition: color .2s;
+@media (max-width:620px){
+  .top .login{ display:none; }
+  .brand img{ height:44px; }
 }
-.faq-btn:hover { color: var(--green); }
-.faq-icon { font-size: 22px; color: var(--green); flex-shrink: 0; transition: transform .3s; }
-.faq-btn.open .faq-icon { transform: rotate(45deg); }
-.faq-body { max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .4s; }
-.faq-body.open { max-height: 400px; padding-bottom: 24px; }
-.faq-body p { font-size: clamp(14px,1.1vw,16px); line-height: 1.8; color: var(--muted); }
-
-/* ── FINAL CTA ────────────────────────────────────── */
-.cta-sec { background: var(--bg2); padding: 130px 80px; text-align: center; position: relative; overflow: hidden; }
-.cta-sec::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 50% 60%, rgba(92,255,61,.07) 0%, transparent 65%);
-  pointer-events: none;
+@media (max-width:560px){
+  .fact{ flex-basis:50%; border-bottom:1px solid var(--line); }
+  .fact:nth-child(2){ border-right:none; }
+  .fact:nth-last-child(-n+2){ border-bottom:none; }
+  .cta{ width:100%; max-width:none; }
+  .modal-card .cta-main{ font-size:14px; letter-spacing:.01em; }
+  .modal-card .cta{ padding:17px 16px; }
 }
-.cta-h {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(40px,5vw,80px);
-  font-weight: 900; line-height: 1.1; color: var(--white);
-  max-width: 860px; margin: 0 auto 32px; position: relative;
-}
-.cta-sub { font-size: clamp(15px,1.3vw,18px); color: var(--muted); max-width: 520px; margin: 0 auto 50px; line-height: 1.75; }
-.cta-lock { margin-top: 28px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--dim); }
-
-/* ── FOOTER ───────────────────────────────────────── */
-footer {
-  background: #000; border-top: 1px solid rgba(92,255,61,.08);
-  padding: 36px 80px; display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 16px;
-}
-.footer-logo { height: 36px; opacity: .7; object-fit: contain; }
-.footer-copy { font-size: 12px; color: var(--dim); }
-.footer-links { display: flex; gap: 20px; }
-.footer-links a { font-size: 12px; color: var(--dim); text-decoration: none; transition: color .2s; }
-.footer-links a:hover { color: var(--green); }
-
-/* ── ANIMATIONS ──────────────────────────────────── */
-@keyframes float-a { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
-@keyframes float-b { 0%,100%{transform:translateY(0) rotate(-1deg)} 50%{transform:translateY(-8px) rotate(1deg)} }
-@keyframes particle-drift { 0%,100%{transform:translate(0,0);opacity:.25} 50%{transform:translate(14px,-36px);opacity:.55} }
-@keyframes pulse-ring { 0%{box-shadow:0 0 0 0 rgba(92,255,61,.5)} 100%{box-shadow:0 0 0 16px rgba(92,255,61,0)} }
-@keyframes underline-in { from{transform:scaleX(0)} to{transform:scaleX(1)} }
-@keyframes shimmer { 0%{background-position:-200% center} 100%{background-position:200% center} }
-
-/* floating badges around devices */
-.device-outer { position: relative; }
-.fbadge {
-  position: absolute; z-index: 30;
-  background: rgba(5,14,5,.97); border: 1px solid rgba(92,255,61,.3);
-  border-radius: 10px; padding: 10px 14px;
-  box-shadow: 0 8px 28px rgba(0,0,0,.55), 0 0 0 1px rgba(92,255,61,.06);
-  white-space: nowrap; pointer-events: none;
-}
-.fbadge.f1 { top: 8%;  right: 4%; left: auto; animation: float-a 3.8s ease-in-out infinite; }
-.fbadge.f2 { bottom: 18%; left: 8%; right: auto; animation: float-b 4.4s ease-in-out infinite .6s; }
-.fbadge.f3 { top: 50%; right: 3%; left: auto; animation: float-a 4s ease-in-out infinite 1.2s; }
-.fb-top { font-size: 10px; font-weight: 800; color: #5CFF3D; letter-spacing: .05em; }
-.fb-top.gold { color: #F5C842; }
-.fb-sub { font-size: 9px; color: rgba(255,255,255,.45); margin-top: 2px; }
-.fb-dot { display: inline-block; width: 6px; height: 6px; background: #5CFF3D; border-radius: 50%; margin-right: 5px; animation: pulse-ring 2s ease-out infinite; vertical-align: middle; }
-
-/* btn pulse */
-.btn-lg { position: relative; overflow: visible; }
-.btn-lg::after {
-  content: ''; position: absolute; inset: -3px;
-  border: 2px solid rgba(92,255,61,.45);
-  pointer-events: none;
-  animation: pulse-ring 2.8s ease-out infinite;
-}
-
-/* section heading animated accent line */
-.sec-head h2:not(.no-ul)::after {
-  content: ''; display: block; width: 48px; height: 3px;
-  background: var(--green); margin: 16px auto 0;
-  transform-origin: left; animation: underline-in .8s .3s both;
-}
-
-/* staggered module cards */
-.mods-grid .rv:nth-child(1){transition-delay:0s}
-.mods-grid .rv:nth-child(2){transition-delay:.08s}
-.mods-grid .rv:nth-child(3){transition-delay:.16s}
-.mods-grid .rv:nth-child(4){transition-delay:.24s}
-.mods-grid .rv:nth-child(5){transition-delay:.32s}
-.mods-grid .rv:nth-child(6){transition-delay:.40s}
-.mods-grid .rv:nth-child(7){transition-delay:.48s}
-.mods-grid .rv:nth-child(8){transition-delay:.56s}
-
-/* stat glow */
-@keyframes stat-glow {
-  0%,100%{text-shadow:0 0 30px rgba(92,255,61,.3)}
-  50%{text-shadow:0 0 55px rgba(92,255,61,.65),0 0 90px rgba(92,255,61,.18)}
-}
-.stat-n { animation: stat-glow 3.2s ease-in-out infinite; }
-
-/* stats scan-line */
-@keyframes scan-move { from{transform:translateX(-100%)} to{transform:translateX(400%)} }
-.stats { position: relative; overflow: hidden; }
-.stats::after {
-  content:''; position:absolute; inset:0; width:30%;
-  background:linear-gradient(90deg,transparent,rgba(92,255,61,.03),transparent);
-  animation: scan-move 6s linear infinite;
-  pointer-events:none;
-}
-
-/* CTA animated gradient */
-@keyframes grad-drift {
-  0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%}
-}
-.cta-sec {
-  background: linear-gradient(-45deg,#030A03,#070708,#091409,#070708) !important;
-  background-size: 400% 400% !important;
-  animation: grad-drift 9s ease infinite;
-}
-
-/* about photo */
-.about-grid img { box-shadow: 0 24px 60px rgba(0,0,0,.5); }
-
-/* testimonial hover shimmer */
-@keyframes tcard-shimmer {
-  from{background-position:-200% 0} to{background-position:200% 0}
-}
-.testi-card { position:relative; overflow:hidden; }
-.testi-card:hover::after {
-  content:''; position:absolute; inset:0;
-  background:linear-gradient(90deg,transparent,rgba(92,255,61,.06),transparent);
-  background-size:200% 100%;
-  animation:tcard-shimmer .9s ease;
-  pointer-events:none;
-}
-
-/* bonus list items staggered */
-.bonus-li:nth-child(1){transition-delay:0s}
-.bonus-li:nth-child(2){transition-delay:.07s}
-.bonus-li:nth-child(3){transition-delay:.14s}
-.bonus-li:nth-child(4){transition-delay:.21s}
-.bonus-li:nth-child(5){transition-delay:.28s}
-.bonus-li { opacity:0; transform:translateX(-16px); transition:opacity .6s ease,transform .6s ease; }
-.bonus-li.up { opacity:1; transform:none; }
-
-/* live broadcast dot */
-.live-dot {
-  display:inline-block; width:8px; height:8px; background:#5CFF3D; border-radius:50%;
-  margin-right:7px; vertical-align:middle;
-  box-shadow:0 0 0 0 rgba(92,255,61,.6);
-  animation:live-pulse 2s ease-out infinite;
-}
-@keyframes live-pulse {
-  0%{box-shadow:0 0 0 0 rgba(92,255,61,.6)}
-  70%{box-shadow:0 0 0 10px rgba(92,255,61,0)}
-  100%{box-shadow:0 0 0 0 rgba(92,255,61,0)}
-}
-
-/* hero spotlight sweep */
-@keyframes spotlight {
-  0%{opacity:0;transform:translateX(-40%) rotate(-10deg)}
-  15%{opacity:1}
-  85%{opacity:.8}
-  100%{opacity:0;transform:translateX(160%) rotate(-10deg)}
-}
-.hero-spotlight {
-  position:absolute; top:-20%; left:0; width:25%; height:140%;
-  background:linear-gradient(90deg,transparent,rgba(92,255,61,.025),transparent);
-  pointer-events:none; z-index:1;
-  animation:spotlight 8s ease-in-out 2s infinite;
-}
-
-/* ── REVEAL ───────────────────────────────────────── */
-.rv { opacity: 0; transform: translateY(24px); transition: opacity .7s cubic-bezier(.25,.46,.45,.94), transform .7s cubic-bezier(.25,.46,.45,.94); }
-.rv.up, .rv.in { opacity: 1; transform: none; }
-
-/* section-level header */
-.sec-head { text-align: center; }
-.sec-head h2 { font-family: 'Playfair Display', serif; font-size: clamp(34px,4vw,60px); font-weight: 900; line-height: 1.1; color: var(--white); margin: 18px 0; }
-.gold-t { color: #F5C842 !important; text-shadow: 0 0 28px rgba(245,200,66,.35); }
-.stat-n.gold-t { animation: stat-glow-gold 3.2s ease-in-out infinite; }
-@keyframes stat-glow-gold {
-  0%,100%{text-shadow:0 0 30px rgba(245,200,66,.3)}
-  50%{text-shadow:0 0 55px rgba(245,200,66,.65),0 0 80px rgba(245,200,66,.18)}
-}
-
-/* ── LIGHT SECTIONS ───────────────────────────────── */
-.sec-light { background: #F3F6F1 !important; }
-.sec-light .video-h,
-.sec-light .about-h,
-.sec-light .testi-h,
-.sec-light .sec-head h2 { color: #080E08; }
-.sec-light .about-p { color: rgba(8,14,8,.64); }
-.sec-light .cred { background: rgba(0,0,0,.04); border-color: rgba(92,255,61,.3); color: rgba(8,14,8,.62); }
-
-/* ── RESPONSIVE ────────────────────────────────────── */
-@media (max-width: 1100px) {
-  .hero { grid-template-columns: 1fr; }
-  .hero-right { min-height: 70vw; }
-  .hero-right img { height: 70vw; }
-  .hero-fade { background: linear-gradient(to top, var(--bg) 0%, rgba(7,7,8,.55) 55%, transparent 100%); }
-  .hero-left { padding: 110px 28px 72px; }
-  .mods-grid { grid-template-columns: repeat(2,1fr); }
-  .stats { grid-template-columns: repeat(2,1fr); }
-  .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,.06); }
-  .stat:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.06); }
-  .stat:last-child, .stat:nth-last-child(2):nth-child(odd) { border-bottom: none; }
-  .course-grid, .bonuses-grid, .about-grid { grid-template-columns: 1fr; gap: 36px; }
-  .testi-grid { grid-template-columns: 1fr 1fr; }
-  nav { padding: 18px 24px; }
-  .video-sec, .course-sec, .modules-sec, .bonuses-sec, .about-sec,
-  .community-sec, .testi-sec, .faq-sec, .cta-sec, footer { padding-left: 28px; padding-right: 28px; }
-}
-@media (max-width: 768px) {
-  .mods-grid { grid-template-columns: 1fr; gap: 12px; }
-  .testi-grid { grid-template-columns: 1fr; }
-  .hero { grid-template-columns: 1fr; }
-  .hero-right { min-height: 60vw; }
-  .hero-right img { height: 60vw; }
-  .hero-fade { background: linear-gradient(to top, var(--bg) 0%, rgba(7,7,8,.55) 55%, transparent 100%); }
-  .hero-left { padding: 110px 28px 72px; }
-  .hero-h { font-size: clamp(40px, 9vw, 68px); }
-  .hero-sub { max-width: 100%; }
-  .hero-badges { gap: 16px; }
-  footer { padding: 32px 24px; }
-  footer .footer-links { width: 100%; justify-content: center; }
-  footer .footer-copy { text-align: center; width: 100%; order: 3; }
-}
-@media (max-width: 480px) {
-  .hero-h { font-size: 36px; }
-  .btn-lg { padding: 18px 32px; font-size: 14px; }
-  .video-sec, .course-sec, .modules-sec, .bonuses-sec, .about-sec,
-  .community-sec, .testi-sec, .faq-sec, .cta-sec { padding-top: 80px; padding-bottom: 80px; }
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+  .rv{ opacity:1; transform:none; }
+  .ck svg path{ stroke-dashoffset:0; }
+  .device{ transform:rotateX(4deg) rotateY(-12deg); }
+  html{ scroll-behavior:auto; }
 }
 </style>
 </head>
 <body>
 
-<div id="pg"></div>
+<div class="fx glow" aria-hidden="true"></div>
+<div class="fx vig" aria-hidden="true"></div>
+<div class="fx grain" aria-hidden="true"></div>
 
-<!-- NAV -->
-<nav id="nav">
-  <img src="images/logo.png" alt="Inspired Life Co." class="nav-logo" onerror="this.style.display='none'">
-  <a href="#enroll" class="nav-btn">Enroll Now</a>
-</nav>
+<header class="top">
+  <a href="#top" class="brand" id="top">
+    <img src="images/logo.png" alt="" onerror="this.style.display='none'">
+    <span>The Articulate <b>Leader</b>&trade;</span>
+  </a>
+  <a href="#" class="login" data-role="login">Log In</a>
+</header>
 
-<!-- ══ HERO ══════════════════════════════════════════ -->
+<main>
+
+<!-- ═══ HERO ═══════════════════════════════════════════════ -->
 <section class="hero">
-  <div class="hero-left">
-    <span class="eyebrow">Mondoe Davis × Inspired Life Co.</span>
-    <h1 class="hero-h">
-      Your Words Are<br>Either Building<br>Your Legacy —<br>
-      <span class="green-glow-t">Or Killing It.</span>
-    </h1>
-    <p class="hero-sub">The executive communication course for Christian men called to lead.</p>
-    <a href="#enroll" class="btn btn-lg">Enroll Now →</a>
-  </div>
-  <div class="hero-right">
-    <img src="images/hero-shot.png" alt="Mondoe Davis"
-         onerror="this.src='https://placehold.co/800x900/070708/5CFF3D?text=Mondoe+Davis'">
-    <div class="hero-fade"></div>
-  </div>
-
-  <div class="hero-spotlight"></div>
-  <div class="hero-ticker">
-    <div class="ticker-track">
-      <span class="t-item">Master Your Voice</span><span class="t-dot">◆</span>
-      <span class="t-item">Speak With Authority</span><span class="t-dot">◆</span>
-      <span class="t-item">Own Every Conversation</span><span class="t-dot">◆</span>
-      <span class="t-item">Words That Move People</span><span class="t-dot">◆</span>
-      <span class="t-item">Command Any Room</span><span class="t-dot">◆</span>
-      <span class="t-item">Lead With Your Voice</span><span class="t-dot">◆</span>
-      <span class="t-item">The Articulate Leader™</span><span class="t-dot">◆</span>
-      <span class="t-item">Communication Mastery</span><span class="t-dot">◆</span>
-      <span class="t-item">Master Your Voice</span><span class="t-dot">◆</span>
-      <span class="t-item">Speak With Authority</span><span class="t-dot">◆</span>
-      <span class="t-item">Own Every Conversation</span><span class="t-dot">◆</span>
-      <span class="t-item">Words That Move People</span><span class="t-dot">◆</span>
-      <span class="t-item">Command Any Room</span><span class="t-dot">◆</span>
-      <span class="t-item">Lead With Your Voice</span><span class="t-dot">◆</span>
-      <span class="t-item">The Articulate Leader™</span><span class="t-dot">◆</span>
-      <span class="t-item">Communication Mastery</span><span class="t-dot">◆</span>
-    </div>
-  </div>
-</section>
-
-<!-- ══ VIDEO ══════════════════════════════════════════ -->
-<section class="video-sec sec-light">
-  <span class="eyebrow">Watch This First</span>
-  <h2 class="video-h rv">
-    Before You Scroll Another Inch —<br><span class="green-t">Watch This.</span>
-  </h2>
-  <div class="video-frame rv">
-    <div style="aspect-ratio:16/9;position:relative;overflow:hidden;background:#080808">
-      <!-- thumbnail bg -->
-      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 32% 50%,#0f1c0f 0%,#050505 72%)"></div>
-      <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(92,255,61,.035),transparent 55%)"></div>
-      <!-- center play button — real YouTube proportions -->
-      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
-        <div style="width:72px;height:50px;background:rgba(255,0,0,.88);border-radius:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(0,0,0,.7),0 0 0 4px rgba(255,0,0,.12)">
-          <svg viewBox="0 0 24 24" width="22" height="22"><polygon points="6,4 20,12 6,20" fill="white"/></svg>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="free-badge"><span class="a">FREE</span><span class="b">Executive Training</span></span>
+        <h1 class="h-hero" style="margin-top:18px">The 3 Shifts That Make a Room Go <span class="grn-i">Quiet</span> When <span class="grn">YOU</span> Speak</h1>
+        <p class="paren">(Without raising your voice, memorizing a script, or being the loudest man in the room.)</p>
+        <div class="cta-wrap">
+          <button type="button" class="cta" data-open>
+            <span class="cta-main">Get Instant Access <b>&rarr;</b></span>
+            <span class="cta-sub">Free &middot; ~40 min &middot; any device</span>
+          </button>
         </div>
       </div>
-      <!-- bottom bar — title + channel + duration -->
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:36px 18px 10px;background:linear-gradient(to top,rgba(0,0,0,.92) 0%,transparent 100%)">
-        <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px">
-          <div>
-            <p style="font-size:clamp(12px,1.15vw,15px);font-weight:700;color:#fff;margin:0 0 3px;line-height:1.35">The Articulate Leader™ — Watch Before You Enroll</p>
-            <p style="font-size:11px;color:rgba(255,255,255,.45);margin:0">Mondoe Davis · Inspired Life Co.</p>
-          </div>
-          <p style="font-size:12px;font-weight:700;color:#ebebeb;background:rgba(0,0,0,.75);padding:2px 6px;border-radius:3px;white-space:nowrap;flex-shrink:0">14:37</p>
+      <div class="hero-photo">
+        <div class="frame"><img src="images/hero-shot.png" alt="Mondoe Davis" onerror="this.onerror=null;this.src='https://placehold.co/720x900/0E1B0E/5CFF3D?text=Mondoe+Davis'"></div>
+        <span class="stamp">With Mondoe Davis</span>
+      </div>
+    </div>
+    <div class="facts">
+      <div class="fact"><b>3</b><span>Core Shifts</span></div>
+      <div class="fact"><b>~40</b><span>Minutes</span></div>
+      <div class="fact"><b>7</b><span>Part Framework</span></div>
+      <div class="fact"><b>$0</b><span>To Watch</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="wave" aria-hidden="true" data-wave></div>
+
+<!-- ═══ WARNING ════════════════════════════════════════════ -->
+<section class="sec warning center">
+  <div class="deco" aria-hidden="true">
+    <span class="dot" style="top:24%;left:8%"></span>
+    <span class="dot" style="bottom:26%;right:9%;animation-delay:-2s"></span>
+    <span class="r" style="top:30%;right:6%;animation-delay:-3s"></span>
+  </div>
+  <div class="narrow">
+    <span class="alert rv">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#5CFF3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 21h20L12 2Z"/><path d="M12 9v5"/><path d="M12 18h.01"/></svg>
+      <span class="mega glow-t">WARNING</span>
+    </span>
+    <p class="line rv d1">The 3 shifts inside will change how you speak &mdash; and how you see communication &mdash; <span class="grn">for good.</span></p>
+    <div class="rule rv d1"></div>
+    <p class="body rv d2">This isn&rsquo;t about talking slower, cutting filler words, or &ldquo;being more confident.&rdquo; Those are symptoms. This training goes after the <strong>one thing underneath all of it</strong> &mdash; the reason capable, godly men still get overlooked and talked over.</p>
+  </div>
+</section>
+
+<!-- ═══ FOR YOU IF ═════════════════════════════════════════ -->
+<section class="sec alt foryou center">
+  <div class="wrap">
+    <h2 class="h-big rv">You&rsquo;re not short on substance.<br><span class="grn-i">You&rsquo;re short on being heard.</span></h2>
+    <div class="foryou-grid">
+      <div class="clip rv" aria-hidden="true">
+        <svg viewBox="0 0 160 200">
+          <rect x="14" y="20" width="132" height="168" rx="8" fill="#0C170C" stroke="#5CFF3D" stroke-width="2.4"/>
+          <rect x="52" y="10" width="56" height="20" rx="6" fill="#0E1B0E" stroke="#5CFF3D" stroke-width="2"/>
+          <g stroke="rgba(92,255,61,.6)" stroke-width="2" fill="none" stroke-linecap="round">
+            <circle cx="36" cy="58" r="8" fill="rgba(92,255,61,.18)"/><path d="M32 58 l3 3 6-7"/>
+            <circle cx="36" cy="94" r="8" fill="rgba(92,255,61,.18)"/><path d="M32 94 l3 3 6-7"/>
+            <circle cx="36" cy="130" r="8" fill="rgba(92,255,61,.18)"/><path d="M32 130 l3 3 6-7"/>
+            <circle cx="36" cy="166" r="8" fill="rgba(92,255,61,.18)"/>
+          </g>
+          <g fill="rgba(92,255,61,.34)">
+            <rect x="56" y="53" width="74" height="6" rx="3"/><rect x="56" y="89" width="74" height="6" rx="3"/>
+            <rect x="56" y="125" width="62" height="6" rx="3"/><rect x="56" y="161" width="50" height="6" rx="3"/>
+          </g>
+        </svg>
+      </div>
+      <div>
+        <span class="eyebrow rv" style="display:flex;justify-content:flex-start;margin-bottom:18px">This Training Is For You If&hellip;</span>
+        <div class="checklist">
+          <div class="ck rv"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11"/><path d="M6 12.5l4 4 8-9"/></svg><p>You prepare the most and believe it the most &mdash; and still watch someone with half the substance move the meeting.</p></div>
+          <div class="ck rv"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11"/><path d="M6 12.5l4 4 8-9"/></svg><p>Your idea gets a polite nod &mdash; then someone repeats it louder and suddenly it&rsquo;s brilliant.</p></div>
+          <div class="ck rv"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11"/><path d="M6 12.5l4 4 8-9"/></svg><p>You&rsquo;ve read the books and taken the course &mdash; and you still shrink the moment the stakes get real.</p></div>
+          <div class="ck rv"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11"/><path d="M6 12.5l4 4 8-9"/></svg><p>You were called to lead &mdash; and your delivery keeps getting in the way of your calling.</p></div>
+        </div>
+        <p class="close-line rv">Just said <em>&ldquo;that&rsquo;s me&rdquo;</em>? Then this was built for you.</p>
+      </div>
+    </div>
+    <div class="cta-wrap rv"><button type="button" class="cta" data-open><span class="cta-main">Show Me The 3 Shifts <b>&rarr;</b></span><span class="cta-sub">Free instant access</span></button></div>
+  </div>
+</section>
+
+<!-- ═══ REFRAME STRIP ═════════════════════════════════════ -->
+<section class="sec reframe-strip center">
+  <div class="narrow">
+    <h2 class="h-big rv">Your business isn&rsquo;t the problem.<br><span class="grn">Your words are.</span></h2>
+    <p class="body rv d1">This training rebuilds them in the right order.</p>
+  </div>
+</section>
+
+<!-- ═══ CHALLENGE ═════════════════════════════════════════ -->
+<section class="sec alt challenge center">
+  <div class="deco" aria-hidden="true">
+    <span style="top:20%;left:7%;animation-delay:-2s">?</span>
+    <span class="r" style="bottom:24%;right:8%"></span>
+  </div>
+  <div class="narrow">
+    <span class="eyebrow c rv">A Different Starting Point</span>
+    <h2 class="h-big rv d1" style="margin-top:16px">What if you&rsquo;ve been building the sentence <span class="grn-i">in the wrong order?</span></h2>
+    <p class="body rv d2">Most communication advice starts in the wrong place. In this training, Mondoe starts where it actually breaks &mdash; and rebuilds it in order.</p>
+  </div>
+</section>
+
+<!-- ═══ MEET YOUR INSTRUCTOR ══════════════════════════════ -->
+<section class="sec mentor">
+  <div class="wrap">
+    <div class="mentor-grid">
+      <div class="mentor-photo rv">
+        <img src="images/about-shot.jpg" alt="Mondoe Davis" onerror="this.onerror=null;this.src='https://placehold.co/620x744/0E1B0E/5CFF3D?text=Mondoe+Davis'">
+      </div>
+      <div class="mentor-body rv d1">
+        <span class="eyebrow">Meet Your Instructor</span>
+        <h2>Mondoe Davis</h2>
+        <p>For twenty years my work has come down to one thing: helping Christian men gain <strong>clarity in their purpose</strong>, <strong>communicate with confidence</strong>, and become the <strong>strong leader their family needs</strong>.</p>
+        <p>Former defensive back for the <strong>New York Jets</strong>. <strong>2003 NCAA National Champion</strong>. Founder of <strong>Inspired Life Co.</strong> and author of <em>God&rsquo;s Voice Your Story</em>, a #1 bestseller. Give me about forty minutes.</p>
+        <p class="sign">&mdash; Mondoe</p>
+        <blockquote class="verse">&ldquo;A word fitly spoken is like apples of gold in settings of silver.&rdquo;<cite>Proverbs 25:11</cite></blockquote>
+        <div class="chips">
+          <span class="chip">Former NFL DB &middot; NY Jets</span>
+          <span class="chip">2003 NCAA Champion</span>
+          <span class="chip">#1 Bestselling Author</span>
         </div>
       </div>
-      <!-- red progress bar at very bottom -->
-      <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:rgba(255,255,255,.12)">
-        <div style="width:0%;height:100%;background:#FF0000"></div>
-      </div>
     </div>
   </div>
 </section>
 
-<!-- ══ STATS ═══════════════════════════════════════════ -->
-<div class="stats">
-  <div class="stat rv"><div class="stat-n" data-target="2000" data-suffix="+">2000+</div><div class="stat-l">Men Trained</div></div>
-  <div class="stat rv"><div class="stat-n" data-target="8">8</div><div class="stat-l">Core Modules</div></div>
-  <div class="stat rv"><div class="stat-n" data-target="20" data-suffix="+">20+</div><div class="stat-l">Years Experience</div></div>
-  <div class="stat rv"><div class="stat-n gold-t" data-target="10" data-prefix="$" data-suffix="K+">$10K+</div><div class="stat-l">In Bonus Value</div></div>
-</div>
-
-<!-- ══ COURSE INTRO ════════════════════════════════════ -->
-<section class="course-sec" id="enroll">
-  <div class="course-grid">
-    <div class="device-outer rv">
-      <!-- floating badges -->
-      <div class="fbadge f1">
-        <div class="fb-top"><span class="fb-dot"></span>Now Playing</div>
-        <div class="fb-sub">Module 01 · Foundations</div>
-      </div>
-      <div class="fbadge f2">
-        <div class="fb-top">2,000+</div>
-        <div class="fb-sub">Leaders Trained</div>
-      </div>
-      <div class="fbadge f3">
-        <div class="fb-top">★★★★★</div>
-        <div class="fb-sub">Student Rating</div>
-      </div>
-      <div class="device-wrap">
-      <div class="device">
-        <div class="device-lid">
-          <div class="device-screen">
-            <!-- titlebar -->
-            <div style="background:#0c1a0c;padding:8px 12px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(92,255,61,.18)">
-              <div style="display:flex;gap:5px"><div style="width:9px;height:9px;border-radius:50%;background:#FF5F57"></div><div style="width:9px;height:9px;border-radius:50%;background:#FFBD2E"></div><div style="width:9px;height:9px;border-radius:50%;background:#28C840"></div></div>
-              <span style="font-size:8.5px;font-weight:900;letter-spacing:.18em;color:#5CFF3D;text-transform:uppercase">The Articulate Leader™</span>
-              <div style="width:44px"></div>
-            </div>
-            <!-- body: sidebar + main -->
-            <div style="display:grid;grid-template-columns:136px 1fr;height:calc(100% - 32px)">
-              <!-- sidebar -->
-              <div style="background:#050d05;border-right:1px solid rgba(92,255,61,.12);padding:10px 8px;overflow:hidden">
-                <div style="font-size:7.5px;letter-spacing:.15em;color:rgba(92,255,61,.55);text-transform:uppercase;margin-bottom:9px;font-weight:700">8 Modules</div>
-                <div style="background:rgba(92,255,61,.14);border-left:2px solid #5CFF3D;padding:5px 9px;margin-bottom:3px;border-radius:0 3px 3px 0">
-                  <div style="font-size:8.5px;font-weight:800;color:#fff">01 · Foundations</div>
-                </div>
-                <div style="padding:5px 9px;margin-bottom:3px;opacity:.5"><div style="font-size:8px;color:#fff">02 · CLARIFY™</div></div>
-                <div style="padding:5px 9px;margin-bottom:3px;opacity:.5"><div style="font-size:8px;color:#fff">03 · COMMAND™</div></div>
-                <div style="padding:5px 9px;margin-bottom:3px;opacity:.5"><div style="font-size:8px;color:#fff">04 · CONNECT™</div></div>
-                <div style="padding:5px 9px;margin-bottom:3px;opacity:.5"><div style="font-size:8px;color:#fff">05 · COMMUNICATE™</div></div>
-                <div style="padding:5px 9px;margin-bottom:3px;opacity:.5"><div style="font-size:8px;color:#fff">06 · CONQUER™</div></div>
-                <div style="padding:5px 9px;margin-bottom:3px;opacity:.5"><div style="font-size:8px;color:#fff">07 · Conflict</div></div>
-                <div style="padding:5px 9px;opacity:.5"><div style="font-size:8px;color:#fff">08 · Legacy</div></div>
-              </div>
-              <!-- main area -->
-              <div style="padding:10px 11px;background:#070708;overflow:hidden">
-                <div style="font-size:8px;letter-spacing:.14em;color:rgba(92,255,61,.6);text-transform:uppercase;margin-bottom:7px;font-weight:700">▶ Now Playing · Module 01</div>
-                <!-- video card -->
-                <div style="background:linear-gradient(135deg,#091409,#0e1e0e);border:1px solid rgba(92,255,61,.22);border-radius:5px;overflow:hidden;margin-bottom:9px">
-                  <div style="height:54px;display:flex;align-items:center;justify-content:center;position:relative">
-                    <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(92,255,61,.07),transparent 70%)"></div>
-                    <div style="width:26px;height:26px;background:#5CFF3D;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 14px rgba(92,255,61,.5)">
-                      <div style="width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:10px solid #000;margin-left:2px"></div>
-                    </div>
+<!-- ═══ WHAT YOU'LL DISCOVER ══════════════════════════════ -->
+<section class="sec alt center">
+  <div class="deco" aria-hidden="true">
+    <span style="top:14%;left:5%;animation-delay:-1s">01</span>
+    <span style="top:44%;left:3%;animation-delay:-3s">02</span>
+    <span style="bottom:20%;left:6%;animation-delay:-2s">03</span>
+    <span class="dot" style="top:30%;right:4%"></span>
+  </div>
+  <div class="wrap">
+    <span class="eyebrow c rv">What You&rsquo;ll Discover Inside</span>
+    <h2 class="h-big rv d1" style="margin-top:16px">Three shifts. Forty minutes.<br><span class="grn-i">Everything you need to transform.</span></h2>
+    <div class="discover-grid">
+      <div class="rv">
+        <div class="stage">
+          <div class="device" id="device" aria-hidden="true">
+            <div class="seal"><b>FREE</b><span>TRAINING</span></div>
+            <div class="lid">
+              <div class="scr">
+                <div class="tb"><i></i><i></i><i></i><span>Articulate Leader</span></div>
+                <div class="ui">
+                  <div class="side">
+                    <em>The 3 Shifts</em>
+                    <div class="row on">01 &middot; The Quiet Shift</div>
+                    <div class="row">02 &middot; The 4-Second Open</div>
+                    <div class="row">03 &middot; Apples of Gold</div>
+                    <div class="row">&mdash; C.O.N.Q.U.E.R.&trade;</div>
                   </div>
-                  <div style="padding:5px 9px;background:rgba(0,0,0,.3)"><span style="font-size:7.5px;color:rgba(255,255,255,.55);font-weight:600">Foundations of an Articulate Leader</span></div>
-                </div>
-                <!-- progress -->
-                <div style="margin-bottom:9px">
-                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
-                    <span style="font-size:7.5px;color:rgba(255,255,255,.45);font-weight:600">Course Progress</span>
-                    <span style="font-size:8px;color:#5CFF3D;font-weight:900">12%</span>
-                  </div>
-                  <div style="height:4px;background:rgba(255,255,255,.08);border-radius:3px">
-                    <div style="width:12%;height:100%;background:linear-gradient(to right,#5CFF3D,#28c820);border-radius:3px;box-shadow:0 0 6px rgba(92,255,61,.5)"></div>
-                  </div>
-                </div>
-                <!-- stat pills -->
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px">
-                  <div style="background:rgba(92,255,61,.08);border:1px solid rgba(92,255,61,.2);border-radius:4px;padding:6px 8px;text-align:center">
-                    <div style="font-size:16px;font-weight:900;color:#5CFF3D;line-height:1">8</div>
-                    <div style="font-size:7px;color:rgba(255,255,255,.4);margin-top:2px">Modules</div>
-                  </div>
-                  <div style="background:rgba(92,255,61,.08);border:1px solid rgba(92,255,61,.2);border-radius:4px;padding:6px 8px;text-align:center">
-                    <div style="font-size:16px;font-weight:900;color:#5CFF3D;line-height:1">10</div>
-                    <div style="font-size:7px;color:rgba(255,255,255,.4);margin-top:2px">Bonuses</div>
+                  <div class="main">
+                    <div class="vid"><span class="play"></span></div>
+                    <div class="prog"><div class="bar"><i></i></div><span>Now playing &middot; 12:04 / 41:38</span></div>
+                    <div class="pills"><div class="pill"><b>3</b><span>Shifts</span></div><div class="pill"><b>7</b><span>Moves</span></div></div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="device-hinge"></div>
-        <div class="device-base"></div>
-      </div>
-      </div><!-- /device-wrap -->
-    </div><!-- /device-outer -->
-    <div class="rv">
-      <span class="eyebrow">The Complete System</span>
-      <h2 class="course-h">Everything You Need to<br><span class="green-t">Command Any Room</span></h2>
-      <ul class="feature-list">
-        <li><span class="chk">✦</span>Self-paced — learn anytime, on your schedule</li>
-        <li><span class="chk">✦</span>8 battle-tested modules from 20+ years of real leadership</li>
-        <li><span class="chk">✦</span>Framework-driven — proven models you apply right away</li>
-        <li><span class="chk">✦</span>Practice exercises built for high-stakes situations</li>
-        <li><span class="chk">✦</span>Ready-to-use communication scripts and templates</li>
-        <li><span class="chk">✦</span>Lifetime access — no expiration, no subscription, ever</li>
-      </ul>
-      <a href="#" class="btn">Enroll Now →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ══ MODULES ══════════════════════════════════════════ -->
-<section class="modules-sec sec-light">
-  <div class="sec-head">
-    <span class="eyebrow">What's Inside</span>
-    <h2 class="rv">8 Modules That Will<br><span class="green-t">Change How You Lead</span></h2>
-  </div>
-  <div class="mods-grid">
-    <div class="mod-card rv">
-      <div class="mod-n">01</div>
-      <div class="mod-t">Foundations of an Articulate Leader</div>
-      <div class="mod-d">The core identity and mindset every articulate leader must own before they say a word.</div>
-    </div>
-    <div class="mod-card rv">
-      <div class="mod-n">02</div>
-      <div class="mod-t">CLARIFY™ — Communicate with Clarity</div>
-      <div class="mod-d">Cut through the noise. Say what you mean, mean what you say, and make it stick.</div>
-    </div>
-    <div class="mod-card rv">
-      <div class="mod-n">03</div>
-      <div class="mod-t">COMMAND™ — Own the Room</div>
-      <div class="mod-d">Master executive presence so every room you enter knows you belong there.</div>
-    </div>
-    <div class="mod-card rv">
-      <div class="mod-n">04</div>
-      <div class="mod-t">CONNECT™ — Build Trust & Influence</div>
-      <div class="mod-d">The frameworks that turn listeners into followers and followers into believers.</div>
-    </div>
-    <div class="mod-card rv">
-      <div class="mod-n">05</div>
-      <div class="mod-t">COMMUNICATE™ — Speak in Any Situation</div>
-      <div class="mod-d">Boardroom. Bedroom. Pulpit. Adapt your communication for every context.</div>
-    </div>
-    <div class="mod-card rv">
-      <div class="mod-n">06</div>
-      <div class="mod-t">CONQUER™ — Lead Conversations</div>
-      <div class="mod-d">Become the leader whose words move people to action, not just agreement.</div>
-    </div>
-    <div class="mod-card rv">
-      <div class="mod-n">07</div>
-      <div class="mod-t">The Articulate Leader in Conflict</div>
-      <div class="mod-d">Navigate difficult conversations and tension with grace and authority.</div>
-    </div>
-    <div class="mod-card rv">
-      <div class="mod-n">08</div>
-      <div class="mod-t">Legacy Communication</div>
-      <div class="mod-d">Build a voice so distinct it outlives every room you walk into.</div>
-    </div>
-  </div>
-  <div style="text-align:center;margin-top:60px;">
-    <a href="#" class="btn">Get Instant Access to All 8 Modules →</a>
-  </div>
-</section>
-
-<!-- ══ BONUSES ══════════════════════════════════════════ -->
-<section class="bonuses-sec">
-  <div class="sec-head">
-    <span class="eyebrow">Included at No Extra Charge</span>
-    <h2 class="rv no-ul">10 Bonuses Worth<br><span class="gold-t">$10,000+</span> <span class="green-t">— Yours Free</span></h2>
-  </div>
-  <div class="bonuses-grid">
-    <div class="device-outer rv">
-      <!-- floating badges -->
-      <div class="fbadge f1">
-        <div class="fb-top gold">$10,000+</div>
-        <div class="fb-sub">In Bonus Value</div>
-      </div>
-      <div class="fbadge f2">
-        <div class="fb-top"><span class="fb-dot"></span>10 Bonuses</div>
-        <div class="fb-sub">Unlocked on Enroll</div>
-      </div>
-      <div class="fbadge f3">
-        <div class="fb-top">YOURS FREE</div>
-        <div class="fb-sub">No extra charge</div>
-      </div>
-      <div class="device-wrap">
-      <div class="device">
-        <div class="device-lid">
-          <div class="device-screen">
-            <!-- titlebar -->
-            <div style="background:#0c1a0c;padding:8px 12px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(92,255,61,.18)">
-              <div style="display:flex;gap:5px"><div style="width:9px;height:9px;border-radius:50%;background:#FF5F57"></div><div style="width:9px;height:9px;border-radius:50%;background:#FFBD2E"></div><div style="width:9px;height:9px;border-radius:50%;background:#28C840"></div></div>
-              <span style="font-size:8.5px;font-weight:900;letter-spacing:.18em;color:#5CFF3D;text-transform:uppercase">Bonus Bundle</span>
-              <div style="width:44px"></div>
-            </div>
-            <!-- body -->
-            <div style="padding:11px 13px;background:#070708;height:calc(100% - 32px);overflow:hidden">
-              <!-- value header -->
-              <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 11px;background:linear-gradient(135deg,rgba(92,255,61,.07),rgba(92,255,61,.02));border:1px solid rgba(92,255,61,.2);border-radius:6px;margin-bottom:10px">
-                <div>
-                  <div style="font-size:7.5px;letter-spacing:.14em;color:rgba(92,255,61,.6);text-transform:uppercase;font-weight:700;margin-bottom:2px">Total Value</div>
-                  <div style="font-family:'Bebas Neue',cursive;font-size:32px;color:#F5C842;line-height:1;text-shadow:0 0 18px rgba(245,200,66,.4)">$10,000+</div>
-                </div>
-                <div style="background:#5CFF3D;border-radius:4px;padding:6px 10px;text-align:center">
-                  <div style="font-size:8px;font-weight:900;color:#000;letter-spacing:.08em;line-height:1.3">YOURS<br>FREE</div>
-                </div>
-              </div>
-              <!-- bonus rows -->
-              <div style="display:flex;flex-direction:column;gap:5px">
-                <div style="display:flex;align-items:center;gap:9px;padding:6px 9px;background:rgba(92,255,61,.05);border:1px solid rgba(92,255,61,.15);border-radius:4px">
-                  <div style="width:16px;height:16px;background:#5CFF3D;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:9px;color:#000;font-weight:900">✓</span></div>
-                  <span style="font-size:8.5px;font-weight:700;color:#fff">C.O.N.Q.U.E.R.™ Framework</span>
-                </div>
-                <div style="display:flex;align-items:center;gap:9px;padding:6px 9px;background:rgba(92,255,61,.05);border:1px solid rgba(92,255,61,.15);border-radius:4px">
-                  <div style="width:16px;height:16px;background:#5CFF3D;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:9px;color:#000;font-weight:900">✓</span></div>
-                  <span style="font-size:8.5px;font-weight:700;color:#fff">Executive Presence Blueprint™</span>
-                </div>
-                <div style="display:flex;align-items:center;gap:9px;padding:6px 9px;background:rgba(92,255,61,.05);border:1px solid rgba(92,255,61,.15);border-radius:4px">
-                  <div style="width:16px;height:16px;background:#5CFF3D;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:9px;color:#000;font-weight:900">✓</span></div>
-                  <span style="font-size:8.5px;font-weight:700;color:#fff">Storytelling Influence Formula™</span>
-                </div>
-                <div style="display:flex;align-items:center;gap:9px;padding:6px 9px;background:rgba(92,255,61,.05);border:1px solid rgba(92,255,61,.15);border-radius:4px">
-                  <div style="width:16px;height:16px;background:#5CFF3D;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:9px;color:#000;font-weight:900">✓</span></div>
-                  <span style="font-size:8.5px;font-weight:700;color:#fff">Scripts & Templates Vault™</span>
-                </div>
-                <div style="display:flex;align-items:center;gap:9px;padding:6px 9px;background:rgba(92,255,61,.05);border:1px solid rgba(92,255,61,.15);border-radius:4px">
-                  <div style="width:16px;height:16px;background:#5CFF3D;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:9px;color:#000;font-weight:900">✓</span></div>
-                  <span style="font-size:8.5px;font-weight:700;color:#fff">AI Communication Practice Vault™</span>
-                </div>
-                <div style="padding:5px 9px;border:1px dashed rgba(255,255,255,.1);border-radius:4px;text-align:center">
-                  <span style="font-size:7.5px;color:rgba(255,255,255,.35);font-style:italic">+ 5 more resources included with enrollment</span>
-                </div>
-              </div>
-            </div>
+            <div class="base"></div>
           </div>
         </div>
-        <div class="device-hinge"></div>
-        <div class="device-base"></div>
       </div>
-      </div><!-- /device-wrap -->
-    </div><!-- /device-outer -->
-    <div class="rv">
-      <ul class="bonus-list">
-        <li class="bonus-li">
-          <span class="b-badge">1</span>
-          <div><div class="b-name">The C.O.N.Q.U.E.R.™ Framework</div><div class="b-sub">7-step system for leading any conversation, every time</div></div>
-        </li>
-        <li class="bonus-li">
-          <span class="b-badge">2</span>
-          <div><div class="b-name">Executive Presence Blueprint™</div><div class="b-sub">Command authority in any room, any situation</div></div>
-        </li>
-        <li class="bonus-li">
-          <span class="b-badge">3</span>
-          <div><div class="b-name">Storytelling Influence Formula™</div><div class="b-sub">Stories that move people, persuade, and inspire action</div></div>
-        </li>
-        <li class="bonus-li">
-          <span class="b-badge">4</span>
-          <div><div class="b-name">Communication Scripts & Templates™</div><div class="b-sub">Ready-to-use scripts for every high-stakes conversation</div></div>
-        </li>
-        <li class="bonus-li">
-          <span class="b-badge">5</span>
-          <div><div class="b-name">AI Communication Practice Vault™</div><div class="b-sub">AI-powered tools to practice and prepare for anything</div></div>
-        </li>
-        <li class="bonus-li">
-          <span class="b-badge">6–10</span>
-          <div><div class="b-name">+ 5 More Power Resources</div><div class="b-sub">Drills, Cheat Sheets, 30-Day Challenge, AI Coach & Certificate</div></div>
-        </li>
-      </ul>
-      <div class="bonus-bar">
-        <div class="b-label-wrap">
-          <div class="b-label-title">Total Bonus Value</div>
-          <div class="b-label-sub">Yours free when you enroll today</div>
+      <div>
+        <div class="shift rv">
+          <div class="sn">Shift #1</div>
+          <h3 class="claim">Why &ldquo;just be more confident&rdquo; is the worst advice you&rsquo;ve ever been handed.</h3>
+          <p>The move that makes confidence a <span class="loop">side effect</span> &mdash; not a fight before every meeting.</p>
         </div>
-        <div class="b-total">$10,000+</div>
-      </div>
-      <div style="margin-top:28px;">
-        <a href="#" class="btn">Claim All 10 Bonuses →</a>
+        <div class="shift rv d1">
+          <div class="sn">Shift #2</div>
+          <h3 class="claim">The 4-second pattern that ends getting interrupted.</h3>
+          <p>Nothing to do with talking faster. A <span class="loop">structure</span> you can install this week.</p>
+        </div>
+        <div class="shift rv d2">
+          <div class="sn">Shift #3</div>
+          <h3 class="claim">The &ldquo;apples of gold&rdquo; principle: say less, land heavier.</h3>
+          <p>How high-trust leaders frame one sentence so the room <span class="loop">leans in</span>.</p>
+        </div>
+        <p class="fw-line rv">These are the first moves of Mondoe&rsquo;s 7-part <b>C.O.N.Q.U.E.R.&trade;</b> framework.</p>
       </div>
     </div>
+    <div class="cta-wrap rv"><button type="button" class="cta" data-open><span class="cta-main">Get Instant Access <b>&rarr;</b></span><span class="cta-sub">Free &middot; ~40 min</span></button></div>
   </div>
 </section>
 
-<!-- ══ ABOUT ═════════════════════════════════════════════ -->
-<section class="about-sec sec-light">
-  <div class="about-grid">
-    <div class="device-outer rv" style="position:relative">
-      <div class="fbadge f1" style="top:8%;right:4%">
-        <div class="fb-top">20+ Years</div>
-        <div class="fb-sub">Leadership Experience</div>
-      </div>
-      <div class="fbadge f2" style="bottom:18%;left:8%">
-        <div class="fb-top"><span class="fb-dot"></span>Live Coaching</div>
-        <div class="fb-sub">Weekly Sessions</div>
-      </div>
-      <div class="fbadge f3" style="top:52%;right:4%">
-        <div class="fb-top">★★★★★</div>
-        <div class="fb-sub">Rated by Leaders</div>
-      </div>
-      <img src="images/about-shot.jpg" alt="Mondoe Davis" style="width:100%;display:block"
-           onerror="this.src='https://placehold.co/600x700/0A160A/fff?text=Mondoe+Davis'">
-    </div>
-    <div class="rv">
-      <span class="eyebrow">Your Coach & Instructor</span>
-      <h2 class="about-h">Meet <span class="green-t">Mondoe Davis</span></h2>
-      <p class="about-p">For over 20 years, Mondoe Davis has been in the room when words mattered most — in corporate boardrooms, on stages before thousands, and in the living rooms of men quietly falling apart.</p>
-      <p class="about-p">He is the founder of Inspired Life Co. and a trusted voice in Christian men's leadership, executive development, and communication mastery. Mondoe doesn't just teach communication — he has lived it at every level.</p>
-      <p class="about-p">The Articulate Leader™ is the distillation of everything he has learned, taught, and proven over two decades of mentoring men to find their voice and use it with authority, clarity, and conviction.</p>
-      <div class="creds">
-        <div class="cred">20+ Years Leadership</div>
-        <div class="cred">Christian Men's Coach</div>
-        <div class="cred">Executive Speaker</div>
-        <div class="cred">Founder, Inspired Life Co.</div>
-      </div>
-    </div>
+<!-- ═══ FINAL ═════════════════════════════════════════════ -->
+<section class="sec final center">
+  <div class="deco" aria-hidden="true">
+    <span class="dot" style="top:26%;left:10%"></span>
+    <span class="r" style="bottom:24%;right:10%;animation-delay:-2s"></span>
+  </div>
+  <div class="narrow">
+    <span class="eyebrow c rv">Your Move, Leader</span>
+    <h2 class="mega glow-t rv d1" style="margin-top:18px;font-size:clamp(38px,8vw,86px)">CLOSE THIS PAGE<br>AND <span class="grn">NOTHING CHANGES.</span></h2>
+    <p class="body rv d2">The meetings keep going the way they&rsquo;ve been going. This takes about forty minutes. Start now.</p>
+    <div class="cta-wrap rv d3"><button type="button" class="cta" data-open><span class="cta-main">Get Instant Access <b>&rarr;</b></span><span class="cta-sub">Free &middot; ~40 min &middot; any device</span></button></div>
+    <p class="micro rv">Free &middot; ~40 Minutes &middot; Instant Access</p>
   </div>
 </section>
 
-<!-- ══ COMMUNITY ════════════════════════════════════════ -->
-<section class="community-sec">
-  <span class="eyebrow"><span class="live-dot"></span>You Won't Walk This Alone</span>
-  <h2 class="community-h rv">Join a Community of<br><span class="green-t">2,000+ Leaders</span></h2>
-  <p style="font-size:clamp(15px,1.2vw,17px);color:var(--muted);max-width:500px;margin:16px auto 0;line-height:1.75;">When you enroll, you get access to our private community — weekly live sessions, accountability, and real men applying this together.</p>
-  <div class="zoom-wrap rv" style="position:relative">
-    <div class="fbadge" style="position:absolute;top:-18px;left:24px;z-index:20;animation:float-a 4s ease-in-out infinite">
-      <div class="fb-top"><span class="fb-dot"></span>Live Right Now</div>
-      <div class="fb-sub">Community Session Active</div>
-    </div>
-    <div class="fbadge" style="position:absolute;top:-18px;right:24px;z-index:20;animation:float-b 4.5s ease-in-out infinite .8s">
-      <div class="fb-top">2,000+ Members</div>
-      <div class="fb-sub">Private Community</div>
-    </div>
-    <img src="images/zoom-call.png" alt="Community Zoom Call"
-         onerror="this.src='https://placehold.co/980x560/0A160A/5CFF3D?text=Community+Zoom'">
-    <div class="zoom-bar">
-      <p style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--green);margin-bottom:8px;">Live Community Session</p>
-      <p style="font-size:clamp(14px,1.2vw,17px);color:#fff;font-weight:600;font-style:italic;">"Iron sharpens iron, and one man sharpens another." — Proverbs 27:17</p>
-    </div>
-  </div>
-</section>
+</main>
 
-<!-- ══ TESTIMONIALS ══════════════════════════════════════ -->
-<section class="testi-sec sec-light">
-  <div class="sec-head">
-    <span class="eyebrow">Real Men. Real Results.</span>
-    <h2 class="testi-h rv">What They're Saying</h2>
-  </div>
-  <div class="testi-grid">
-    <div class="testi-card rv">
-      <div class="stars">★★★★★</div>
-      <p class="testi-q">"I've been in leadership for 15 years. This course gave me language and frameworks I didn't know I was missing. My team noticed the shift within a week."</p>
-      <div class="testi-name">Kevin English</div>
-      <div class="testi-role">Senior Leader</div>
-    </div>
-    <div class="testi-card rv">
-      <div class="stars">★★★★★</div>
-      <p class="testi-q">"Mondoe doesn't just teach you what to say — he rewires how you think about communication. The most practical leadership training I've ever taken."</p>
-      <div class="testi-name">Fernando Perez</div>
-      <div class="testi-role">Business Owner</div>
-    </div>
-    <div class="testi-card rv">
-      <div class="stars">★★★★★</div>
-      <p class="testi-q">"I used to avoid hard conversations. Now I walk into them with confidence. The C.O.N.Q.U.E.R. framework alone is worth 10x the price of the course."</p>
-      <div class="testi-name">Travis Weiss</div>
-      <div class="testi-role">Pastor & Leader</div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ FAQ ═══════════════════════════════════════════════ -->
-<section class="faq-sec">
-  <div class="sec-head"><span class="eyebrow">Got Questions?</span></div>
-  <h2 class="faq-h rv">We've Got Answers</h2>
-  <div class="faq-list">
-    <div class="faq-item">
-      <button class="faq-btn" onclick="toggleFaq(this)">Who is The Articulate Leader™ for? <span class="faq-icon">+</span></button>
-      <div class="faq-body"><p>Christian men in leadership — pastors, executives, entrepreneurs, fathers, coaches — anyone called to lead who wants to communicate with authority, clarity, and conviction.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-btn" onclick="toggleFaq(this)">How is this different from other communication courses? <span class="faq-icon">+</span></button>
-      <div class="faq-body"><p>Most courses teach surface-level tips. The Articulate Leader™ is a complete Operating System — built on identity, framework, and real practice — designed for men of faith who operate in high-stakes environments.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-btn" onclick="toggleFaq(this)">How long does it take to complete? <span class="faq-icon">+</span></button>
-      <div class="faq-body"><p>Fully self-paced. Most men complete all 8 modules in 4–6 weeks while applying the frameworks in real time. You have lifetime access — go at your own pace.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-btn" onclick="toggleFaq(this)">What exactly do I get when I enroll? <span class="faq-icon">+</span></button>
-      <div class="faq-body"><p>All 8 core modules, all 10 bonuses ($10,000+ in value), access to the private community, and lifetime access to all future updates. No subscriptions. No hidden fees.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-btn" onclick="toggleFaq(this)">Is there a guarantee? <span class="faq-icon">+</span></button>
-      <div class="faq-body"><p>Yes. Go through the material, apply the frameworks, and if you don't feel you've received massive value — reach out. We stand behind this program completely.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ FINAL CTA ══════════════════════════════════════════ -->
-<section class="cta-sec">
-  <span class="eyebrow" style="display:block;margin-bottom:22px;">Your Move, Leader.</span>
-  <h2 class="cta-h rv">You Were Called to Lead. <span class="green-glow-t">Now Learn to Sound Like It.</span></h2>
-  <p class="cta-sub rv">8 modules. 10 bonuses. 2,000+ brothers. Lifetime access.<br>Everything you need. No excuses left.</p>
-  <a href="#" class="btn btn-lg rv">Yes — I'm In. Enroll Now →</a>
-  <p class="cta-lock">Lifetime Access · All 10 Bonuses Included · No Upsells · No Subscriptions</p>
-</section>
-
-<!-- FOOTER -->
 <footer>
-  <img src="images/logo.png" alt="Inspired Life Co." class="footer-logo" onerror="this.style.display='none'">
-  <p class="footer-copy">© 2026 Inspired Life Co. · All Rights Reserved · The Articulate Leader™</p>
-  <div class="footer-links">
-    <a href="#">Privacy</a>
-    <a href="#">Terms</a>
-    <a href="#">Contact</a>
-  </div>
+  <p class="foot-brand">The Articulate <b>Leader</b>&trade;</p>
+  <p class="foot-lang">Live Inspired &middot; Build Different &middot; Discipline Creates Freedom</p>
+  <div class="foot-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact</a></div>
+  <p class="disclaimer">This training is for educational and informational purposes only. It reflects personal experience and faith-based principles for leadership and communication growth. It is <strong>not</strong> financial, legal, or career advice, and no income, promotion, or specific-result guarantees are made or implied. Results vary based on individual effort, circumstances, and application. By registering, you agree to receive email communication from Inspired Life Co. and can unsubscribe at any time.</p>
+  <p class="foot-copy">&copy; 2026 Inspired Life Co. &middot; All Rights Reserved &middot; The Articulate Leader&trade;</p>
 </footer>
 
+<!-- ═══ MODAL ═════════════════════════════════════════════ -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-bg" data-close></div>
+  <div class="modal-card" id="modalCard">
+    <button type="button" class="modal-x" data-close aria-label="Close">&times;</button>
+    <div class="form-live">
+      <div class="modal-logo">
+        <img src="images/logo.png" alt="" onerror="this.style.display='none'">
+        <span>The Articulate <b>Leader</b>&trade;</span>
+      </div>
+      <h3 id="modalTitle">Enter your info to get instant access to this <em>FREE</em> training</h3>
+      <form id="optinForm" novalidate>
+        <div class="field">
+          <label for="f-name">Name</label>
+          <input type="text" id="f-name" name="name" autocomplete="name" placeholder="Your name" required>
+        </div>
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input type="email" id="f-email" name="email" autocomplete="email" placeholder="you@example.com" required>
+        </div>
+        <input class="hp" type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit" class="cta">
+          <span class="cta-main">Take Me To The Training Now <b>&raquo;</b></span>
+          <span class="cta-sub">Instant access &middot; free</span>
+        </button>
+        <p class="consent">By providing your information, you also consent to receive additional free content via email.</p>
+      </form>
+      <p class="card-trust">No spam &middot; Unsubscribe anytime</p>
+    </div>
+    <div class="form-done">
+      <div class="tick"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6"/></svg></div>
+      <h4>You&rsquo;re in.</h4>
+      <p>Taking you to the training now&hellip;</p>
+      <a href="#" class="cta" id="doneGo" style="display:flex;width:100%;margin-top:18px"><span class="cta-main">Go To The Training <b>&rarr;</b></span><span class="cta-sub">If it didn&rsquo;t jump automatically</span></a>
+    </div>
+  </div>
+</div>
+
 <script>
-const nav = document.getElementById('nav');
-const pg  = document.getElementById('pg');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 40);
-  const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
-  pg.style.width = pct + '%';
-}, { passive: true });
+/* ═══ CONFIG — swap these two when the client sends them ═══
+   HOW THE DATA REACHES KAJABI:
+   1. In Kajabi: Marketing → Forms → create a form with Name + Email.
+   2. Kajabi gives you an embed snippet — copy the form's POST URL.
+   3. Paste it as kajabiFormAction below. On submit, the browser POSTs
+      Name+Email straight into Kajabi as a contact (tag it / fire an
+      automation there to grant the training + email the link).
+   4. Paste the Kajabi training-video page URL as redirectUrl — we send
+      the visitor there right after. No Google Sheet needed.
+   If Kajabi blocks the cross-site POST, use Kajabi's own <script> embed
+   inside the modal, or route form → Zapier webhook → "Create Kajabi Contact".
+   ════════════════════════════════════════════════════════ */
+const CONFIG = {
+  // Kajabi form 2149706587 (embed.js: articulateleader.mykajabi.com/forms/2149706587/embed.js)
+  kajabiFormAction: 'https://articulateleader.mykajabi.com/forms/2149706587/form_submissions',
+  redirectUrl:      'https://articulateleader.mykajabi.com/freetraining',
+  fields: { name: 'form_submission[name]', email: 'form_submission[email]' },
+  loginUrl: 'https://articulateleader.mykajabi.com/login',
+  fireLeadEvent: true
+};
+document.querySelectorAll('[data-role="login"]').forEach(a => { a.href = CONFIG.loginUrl; });
+(function(){ const g = document.getElementById('doneGo'); if (g && !CONFIG.redirectUrl.startsWith('REPLACE_')) g.href = CONFIG.redirectUrl; })();
 
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('up'); io.unobserve(e.target); } });
-}, { threshold: 0.1 });
-document.querySelectorAll('.rv').forEach(el => io.observe(el));
-// also observe bonus list items
-const io2 = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('up'); io2.unobserve(e.target); } });
-}, { threshold: 0.15 });
-document.querySelectorAll('.bonus-li').forEach(el => io2.observe(el));
+/* reveal */
+const io = new IntersectionObserver((es) => {
+  es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
+document.querySelectorAll('.rv, .ck').forEach(el => io.observe(el));
 
-function runCounters() {
-  document.querySelectorAll('[data-target]').forEach(el => {
-    const target = +el.dataset.target;
-    const pre = el.dataset.prefix || '';
-    const suf = el.dataset.suffix || '';
-    let cur = 0;
-    const step = target / (2000 / 16);
-    const t = setInterval(() => {
-      cur = Math.min(cur + step, target);
-      el.textContent = pre + Math.floor(cur).toLocaleString() + suf;
-      if (cur >= target) clearInterval(t);
-    }, 16);
-  });
-}
-document.addEventListener('DOMContentLoaded', () => {
-  runCounters();
-  // Spawn hero particles
-  const hero = document.querySelector('.hero');
-  for (let i = 0; i < 22; i++) {
-    const p = document.createElement('div');
-    const size = Math.random() * 3 + 1;
-    p.style.cssText = [
-      'position:absolute',
-      `width:${size}px`, `height:${size}px`,
-      `background:rgba(92,255,61,${(Math.random()*.35+.1).toFixed(2)})`,
-      'border-radius:50%',
-      `left:${(Math.random()*52).toFixed(1)}%`,
-      `top:${(Math.random()*100).toFixed(1)}%`,
-      `animation:particle-drift ${(Math.random()*7+6).toFixed(1)}s ease-in-out ${(Math.random()*8).toFixed(1)}s infinite`,
-      'pointer-events:none','z-index:1'
-    ].join(';');
-    hero.appendChild(p);
+/* waveform */
+document.querySelectorAll('[data-wave]').forEach(w => {
+  for (let i = 0; i < 42; i++) {
+    const b = document.createElement('i');
+    const d = Math.abs(i - 21) / 21;
+    b.style.height = (9 + (1 - d) * 24 + Math.random() * 6).toFixed(1) + 'px';
+    b.style.animationDelay = (-(Math.random() * 1.5)).toFixed(2) + 's';
+    b.style.animationDuration = (1.2 + Math.random() * 0.8).toFixed(2) + 's';
+    w.appendChild(b);
   }
 });
 
-function toggleFaq(btn) {
-  const body = btn.nextElementSibling;
-  const open = body.classList.contains('open');
-  document.querySelectorAll('.faq-body').forEach(b => b.classList.remove('open'));
-  document.querySelectorAll('.faq-btn').forEach(b => b.classList.remove('open'));
-  if (!open) { body.classList.add('open'); btn.classList.add('open'); }
+/* particles */
+(function(){
+  if (matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  const n = innerWidth < 640 ? 12 : 22;
+  for (let i = 0; i < n; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const s = (Math.random()*2.4+1).toFixed(1);
+    p.style.width = p.style.height = s + 'px';
+    p.style.left = (Math.random()*100).toFixed(1) + 'vw';
+    p.style.top = (Math.random()*100+100).toFixed(1) + 'vh';
+    p.style.opacity = (Math.random()*.4+.12).toFixed(2);
+    p.style.setProperty('--dx', (Math.random()*60-30).toFixed(0) + 'px');
+    p.style.animationDuration = (Math.random()*16+14).toFixed(1) + 's';
+    p.style.animationDelay = (-(Math.random()*24)).toFixed(1) + 's';
+    document.body.appendChild(p);
+  }
+})();
+
+/* 3D device pointer parallax */
+(function(){
+  const d = document.getElementById('device');
+  if (!d || matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  const stage = d.closest('.stage'); let raf;
+  stage.addEventListener('pointermove', (e) => {
+    const r = stage.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(() => { d.style.animation = 'none'; d.style.transform = `rotateX(${6 - py*8}deg) rotateY(${-17 + px*10}deg)`; });
+  });
+  stage.addEventListener('pointerleave', () => { d.style.animation = ''; d.style.transform = ''; });
+})();
+
+/* count-up facts */
+const cIO = new IntersectionObserver((es) => {
+  es.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.querySelectorAll('.fact b').forEach(el => {
+      const m = el.textContent.trim().match(/^(\D*)(\d+)(\D*)$/);
+      if (!m || matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+      const [, pre, num, post] = m, target = +num;
+      let cur = 0; const step = Math.max(1, target/34);
+      const tick = () => { cur = Math.min(cur+step, target); el.textContent = pre + Math.round(cur) + post; if (cur < target) requestAnimationFrame(tick); };
+      el.textContent = pre + '0' + post; tick();
+    });
+    cIO.unobserve(e.target);
+  });
+}, { threshold: 0.6 });
+document.querySelectorAll('.facts').forEach(el => cIO.observe(el));
+
+/* ── MODAL ─────────────────────────────────────────────── */
+const modal = document.getElementById('modal');
+const modalCard = document.getElementById('modalCard');
+let lastFocus = null;
+function openModal(){
+  lastFocus = document.activeElement;
+  modal.classList.add('open');
+  document.body.classList.add('locked');
+  setTimeout(() => { const f = document.getElementById('f-name'); if (f) f.focus(); }, 60);
 }
+function closeModal(){
+  modal.classList.remove('open');
+  document.body.classList.remove('locked');
+  if (lastFocus && lastFocus.focus) lastFocus.focus();
+}
+document.querySelectorAll('[data-open]').forEach(b => b.addEventListener('click', openModal));
+document.querySelectorAll('[data-close]').forEach(b => b.addEventListener('click', closeModal));
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
+
+/* ── opt-in form ───────────────────────────────────────── */
+const form = document.getElementById('optinForm');
+const CONFIGURED = !CONFIG.kajabiFormAction.startsWith('REPLACE_');
+
+function markLead(){
+  if (!CONFIG.fireLeadEvent) return;
+  try { if (window.fbq) fbq('track','Lead',{ content_name:'Articulate Leader Free Training' }); } catch(e){}
+  try { (window.dataLayer = window.dataLayer || []).push({ event:'optin_free_training' }); } catch(e){}
+}
+
+/* Post straight into Kajabi via a hidden iframe — a real form POST,
+   so no CORS wall and no page navigation. Kajabi records the contact;
+   we don't need to read the response. */
+function sendToKajabi(name, email){
+  let sink = document.getElementById('kajabiSink');
+  if (!sink){
+    sink = document.createElement('iframe');
+    sink.id = 'kajabiSink'; sink.name = 'kajabiSink';
+    sink.setAttribute('aria-hidden','true');
+    sink.style.cssText = 'position:absolute;width:0;height:0;border:0;left:-9999px';
+    document.body.appendChild(sink);
+  }
+  const f = document.createElement('form');
+  f.action = CONFIG.kajabiFormAction; f.method = 'POST'; f.target = 'kajabiSink'; f.style.display = 'none';
+  const put = (n,v) => { const i = document.createElement('input'); i.type = 'hidden'; i.name = n; i.value = v; f.appendChild(i); };
+  put(CONFIG.fields.name, name);
+  put(CONFIG.fields.email, email);
+  document.body.appendChild(f);
+  f.submit();
+  setTimeout(() => f.remove(), 3000);
+}
+
+function complete(){
+  modalCard.classList.add('sent'); markLead();
+  if (CONFIGURED && !CONFIG.redirectUrl.startsWith('REPLACE_')) setTimeout(() => { location.href = CONFIG.redirectUrl; }, 1400);
+}
+
+form.addEventListener('submit', (ev) => {
+  ev.preventDefault();
+  if (form.company_website && form.company_website.value) { complete(); return; }   // honeypot: bots see "success", nothing sent
+  const name = form.querySelector('#f-name').value.trim();
+  const email = form.querySelector('#f-email').value.trim();
+  if (!name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+    (name ? form.querySelector('#f-email') : form.querySelector('#f-name')).focus();
+    return;
+  }
+  if (CONFIGURED) sendToKajabi(name, email);
+  else console.info('[Articulate Leader] preview submit:', { name, email });
+  complete();
+});
 </script>
 </body>
 </html>
