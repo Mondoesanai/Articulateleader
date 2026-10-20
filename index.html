@@ -5,6 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Articulate Leader™ | FREE Executive Communication Training</title>
 <meta name="description" content="A free training with Mondoe Davis — the 3 shifts that make a room go quiet when you speak, without raising your voice or memorizing a script. Built for Christian leaders.">
+<link rel="canonical" href="https://www.articulateleader.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Articulate Leader">
+<meta property="og:title" content="FREE Training: The 3 Shifts That Make a Room Go Quiet When You Speak">
+<meta property="og:description" content="A free ~40-minute executive communication training with Mondoe Davis. Built for Christian leaders.">
+<meta property="og:url" content="https://www.articulateleader.com/">
+<meta property="og:image" content="https://www.articulateleader.com/images/og-home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#000000">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -128,6 +141,11 @@ main{ position:relative; z-index:3; }
 .nav-cta:hover{ transform:translateY(-2px); box-shadow:0 12px 30px -8px rgba(92,255,61,.7); }
 .nav-cta:focus-visible{ outline:2px solid #fff; outline-offset:2px; }
 .nav-cta:active{ transform:translateY(0); }
+.top-r{ display:flex; align-items:center; gap:clamp(14px,2.4vw,24px); }
+.top .login{ font-weight:800; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--tx-dim); text-decoration:none; flex-shrink:0; white-space:nowrap; border-radius:2px; }
+.top .login:hover{ color:var(--green); }
+.top .login:focus-visible{ outline:2px solid var(--green); outline-offset:4px; }
+.top .login:active{ opacity:.7; }
 
 /* ── HERO ──────────────────────────────────────────────────── */
 .hero{ padding:clamp(30px,4vh,48px) var(--pad-x) clamp(38px,6vh,60px); overflow:hidden; }
@@ -278,10 +296,13 @@ main{ position:relative; z-index:3; }
 
 /* ── FOOTER ────────────────────────────────────────────────── */
 footer{ background:#000; padding:44px var(--pad-x); border-top:1px solid var(--line-2); position:relative; z-index:3; text-align:center; }
+.foot-co{ display:inline-flex; align-items:center; gap:12px; margin-bottom:16px; }
+.foot-co img{ width:56px; height:auto; mix-blend-mode:screen; }
+.foot-co span{ font-weight:800; font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--tx-dim); text-align:left; line-height:1.5; }
 .foot-brand{ font-weight:800; font-size:15px; color:var(--tx-lo); }
 .foot-brand b{ color:var(--green); }
 .foot-lang{ margin-top:9px; font-weight:800; font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--green); opacity:.6; }
-.foot-links{ display:flex; gap:20px; justify-content:center; margin-top:14px; }
+.foot-links{ display:flex; flex-wrap:wrap; gap:10px 20px; justify-content:center; margin-top:14px; }
 .foot-links a{ font-weight:800; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--tx-dim); text-decoration:none; transition:color .25s var(--ease); }
 .foot-links a:hover{ color:var(--green); }
 .disclaimer{ margin:22px auto 0; padding-top:20px; border-top:1px solid var(--line-2); font-size:11.5px; line-height:1.7; color:var(--tx-dim); max-width:78ch; }
@@ -372,10 +393,13 @@ footer{ background:#000; padding:44px var(--pad-x); border-top:1px solid var(--l
 
 <header class="top">
   <a href="#top" class="brand" id="top">
-    <img src="images/logo.png" alt="" onerror="this.style.display='none'">
+    <img src="images/articulate-leader-logo.png" width="745" height="647" alt="" onerror="this.style.display='none'">
     <span>The Articulate <b>Leader</b>&trade;</span>
   </a>
-  <button type="button" class="nav-cta" data-open>Get Free Training <b>&rarr;</b></button>
+  <div class="top-r">
+    <a href="https://articulateleader.mykajabi.com/login" class="login">Log In</a>
+    <button type="button" class="nav-cta" data-open>Get Free Training <b>&rarr;</b></button>
+  </div>
 </header>
 
 <main>
@@ -590,9 +614,10 @@ footer{ background:#000; padding:44px var(--pad-x); border-top:1px solid var(--l
 </main>
 
 <footer>
+  <div class="foot-co"><img src="images/inspired-life-co-logo.png" width="400" height="403" alt=""><span>An Inspired Life Co.<br>Program</span></div>
   <p class="foot-brand">The Articulate <b>Leader</b>&trade;</p>
   <p class="foot-lang">Live Inspired &middot; Build Different &middot; Discipline Creates Freedom</p>
-  <div class="foot-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact</a></div>
+  <div class="foot-links"><a href="enroll.html">Enroll</a><a href="https://articulateleader.mykajabi.com/login">Student Login</a><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact</a></div>
   <p class="disclaimer">This training is for educational and informational purposes only. It reflects personal experience and faith-based principles for leadership and communication growth. It is <strong>not</strong> financial, legal, or career advice, and no income, promotion, or specific-result guarantees are made or implied. Results vary based on individual effort, circumstances, and application. By registering, you agree to receive email communication from Inspired Life Co. and can unsubscribe at any time.</p>
   <p class="foot-copy">&copy; 2026 Inspired Life Co. &middot; All Rights Reserved &middot; The Articulate Leader&trade;</p>
 </footer>
@@ -604,7 +629,7 @@ footer{ background:#000; padding:44px var(--pad-x); border-top:1px solid var(--l
     <button type="button" class="modal-x" data-close aria-label="Close">&times;</button>
     <div class="form-live">
       <div class="modal-logo">
-        <img src="images/logo.png" alt="" onerror="this.style.display='none'">
+        <img src="images/articulate-leader-logo.png" width="745" height="647" alt="" onerror="this.style.display='none'">
         <span>The Articulate <b>Leader</b>&trade;</span>
       </div>
       <h3 id="modalTitle">Enter your info to get instant access to this <em>FREE</em> training</h3>
