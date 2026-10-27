@@ -38,6 +38,7 @@
   --green:#5CFF3D; --green-d:#0FAE4B; --green-deep:#0A7A38;
   --tx:#EAF3E8; --tx-lo:rgba(234,243,232,.66); --tx-dim:rgba(234,243,232,.42);
   --ink:#000;
+  --paper:#F3F6F1; --ink-tx:#0E1A12; --ink-lo:rgba(14,26,18,.72); --ink-dim:rgba(14,26,18,.5); --ink-line:rgba(14,26,18,.1); --green-ink:#0B8A3C;
   --shadow:0 2px 8px rgba(0,0,0,.7),0 34px 80px -22px rgba(0,0,0,.9),0 0 0 1px var(--line),0 0 70px -20px rgba(92,255,61,.28);
   --glow-sm:0 0 28px rgba(92,255,61,.3);
   --ease:cubic-bezier(.22,.61,.36,1);
@@ -102,6 +103,26 @@ main{ position:relative; z-index:3; }
 .center .rule{ margin:22px auto 0; }
 .sec.alt{ background:linear-gradient(180deg, rgba(6,17,10,.4), rgba(15,174,75,.06) 50%, rgba(6,17,10,.4)), var(--bg-1);
   border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+
+/* light sections — soft paper, never pure white; top/bottom edges ease in from the black */
+.sec.light{ color:var(--ink-tx);
+  background:
+    radial-gradient(70% 55% at 50% 0%, rgba(92,255,61,.10), transparent 70%),
+    radial-gradient(55% 50% at 100% 100%, rgba(15,174,75,.08), transparent 70%),
+    var(--paper);
+  box-shadow:inset 0 44px 64px -44px rgba(0,0,0,.38), inset 0 -44px 64px -44px rgba(0,0,0,.38); }
+.light ::selection{ color:var(--ink-tx); }
+.light .body{ color:var(--ink-lo); }
+.light .body strong{ color:var(--ink-tx); }
+.light .grn{ color:var(--green-ink); }
+.light .grn-i{ color:var(--green-ink); text-shadow:none; }
+.light .eyebrow{ color:var(--green-ink); }
+.light .eyebrow::before, .light .eyebrow::after{ background:var(--green-ink); }
+.light .cta{ box-shadow:0 16px 34px -14px rgba(10,122,56,.55),0 0 0 1px rgba(10,122,56,.35); }
+.light .cta:hover{ box-shadow:0 22px 44px -14px rgba(10,122,56,.6),0 0 0 1px rgba(10,122,56,.5); }
+.light .cta:focus-visible{ outline-color:var(--ink-tx); }
+.light .deco span{ color:rgba(11,138,60,.6); border-color:rgba(11,138,60,.28); background:rgba(11,138,60,.04); }
+.light .deco .dot{ background:var(--green-ink); box-shadow:none; }
 
 /* reveal */
 .rv{ opacity:0; transform:translateY(24px); transition:opacity .8s var(--ease),transform .8s var(--ease); }
@@ -221,6 +242,12 @@ main{ position:relative; z-index:3; }
 .ck p{ font-size:clamp(15px,1.45vw,19px); color:var(--tx); font-weight:700; line-height:1.42; letter-spacing:-.01em; }
 .foryou .close-line{ margin-top:30px; font-weight:800; font-size:clamp(16px,1.7vw,21px); }
 .foryou .close-line em{ font-style:normal; color:var(--green); }
+.light .ck{ border-bottom-color:var(--ink-line); }
+.light .ck:first-child{ border-top-color:var(--ink-line); }
+.light .ck svg circle{ stroke:var(--green-ink); fill:rgba(11,138,60,.08); }
+.light .ck svg path{ stroke:var(--green-ink); }
+.light .ck p{ color:var(--ink-tx); }
+.light.foryou .close-line em{ color:var(--green-ink); }
 
 /* reframe strip */
 .reframe-strip .h-big{ max-width:20ch; margin:0 auto; }
@@ -256,10 +283,17 @@ main{ position:relative; z-index:3; }
 .shift p .loop{ color:var(--green); font-style:italic; }
 .fw-line{ margin-top:22px; font-size:13px; color:var(--tx-dim); }
 .fw-line b{ color:var(--green); }
+.light .shift{ border-bottom-color:var(--ink-line); }
+.light .shift .sn{ color:var(--green-ink); }
+.light .shift p{ color:var(--ink-lo); }
+.light .shift p .loop{ color:var(--green-ink); }
+.light .fw-line{ color:var(--ink-dim); }
+.light .fw-line b{ color:var(--green-ink); }
 
 .stage{ perspective:1400px; display:flex; justify-content:center; }
 .device{ width:min(460px,92%); transform-style:preserve-3d; transform:rotateX(6deg) rotateY(-17deg); transition:transform .5s var(--ease); animation:devfloat 6s var(--ease) infinite; filter:drop-shadow(-22px 32px 42px rgba(0,0,0,.7)); }
 @keyframes devfloat{ 0%,100%{ transform:rotateX(6deg) rotateY(-17deg) translateY(0) } 50%{ transform:rotateX(6deg) rotateY(-17deg) translateY(-12px) } }
+.light .device{ filter:drop-shadow(-22px 32px 40px rgba(14,26,18,.4)); }
 .device .lid{ background:linear-gradient(150deg,#101a10,#0a0f0a); border:1px solid rgba(92,255,61,.26); border-bottom:none; border-radius:12px 12px 0 0; padding:9px 9px 5px; box-shadow:inset 0 1px 0 rgba(92,255,61,.1),0 -2px 30px rgba(92,255,61,.06); }
 .device .scr{ background:#04060A; border-radius:4px; overflow:hidden; aspect-ratio:16/10; }
 .device .base{ height:24px; background:linear-gradient(#18201a,#0c120c); border:1px solid rgba(92,255,61,.14); border-top:none; border-radius:0 0 10px 10px; position:relative; }
@@ -454,7 +488,7 @@ footer{ background:#000; padding:44px var(--pad-x); border-top:1px solid var(--l
 </section>
 
 <!-- ═══ FOR YOU IF ═════════════════════════════════════════ -->
-<section class="sec alt foryou center">
+<section class="sec light foryou center">
   <div class="wrap">
     <h2 class="h-big rv">You&rsquo;re not short on substance.<br><span class="grn-i">You&rsquo;re short on being heard.</span></h2>
     <div class="foryou-grid">
@@ -498,7 +532,7 @@ footer{ background:#000; padding:44px var(--pad-x); border-top:1px solid var(--l
 </section>
 
 <!-- ═══ CHALLENGE ═════════════════════════════════════════ -->
-<section class="sec alt challenge center">
+<section class="sec light challenge center">
   <div class="deco" aria-hidden="true">
     <span style="top:20%;left:7%;animation-delay:-2s">?</span>
     <span class="r" style="bottom:24%;right:8%"></span>
@@ -535,7 +569,7 @@ footer{ background:#000; padding:44px var(--pad-x); border-top:1px solid var(--l
 </section>
 
 <!-- ═══ WHAT YOU'LL DISCOVER ══════════════════════════════ -->
-<section class="sec alt center">
+<section class="sec light center">
   <div class="deco" aria-hidden="true">
     <span style="top:14%;left:5%;animation-delay:-1s">01</span>
     <span style="top:44%;left:3%;animation-delay:-3s">02</span>

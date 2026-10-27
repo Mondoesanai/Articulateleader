@@ -38,6 +38,7 @@
   --green:#5CFF3D; --green-d:#0FAE4B; --green-deep:#0A7A38;
   --tx:#EAF3E8; --tx-lo:rgba(234,243,232,.66); --tx-dim:rgba(234,243,232,.42);
   --ink:#000;
+  --paper:#F3F6F1; --ink-tx:#0E1A12; --ink-lo:rgba(14,26,18,.72); --ink-dim:rgba(14,26,18,.5); --ink-line:rgba(14,26,18,.1); --green-ink:#0B8A3C;
   --shadow:0 2px 8px rgba(0,0,0,.7),0 34px 80px -22px rgba(0,0,0,.9),0 0 0 1px var(--line),0 0 70px -20px rgba(92,255,61,.28);
   --glow-sm:0 0 28px rgba(92,255,61,.3);
   --ease:cubic-bezier(.22,.61,.36,1);
@@ -93,6 +94,21 @@ main{ position:relative; z-index:3; }
 .center{ text-align:center; }
 .sec.alt{ background:linear-gradient(180deg, rgba(6,17,10,.4), rgba(15,174,75,.06) 50%, rgba(6,17,10,.4)), var(--bg-1);
   border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+
+/* light sections — soft paper, never pure white; top/bottom edges ease in from the black */
+.sec.light{ color:var(--ink-tx);
+  background:
+    radial-gradient(70% 55% at 50% 0%, rgba(92,255,61,.10), transparent 70%),
+    radial-gradient(55% 50% at 100% 100%, rgba(15,174,75,.08), transparent 70%),
+    var(--paper);
+  box-shadow:inset 0 44px 64px -44px rgba(0,0,0,.38), inset 0 -44px 64px -44px rgba(0,0,0,.38); }
+.light ::selection{ color:var(--ink-tx); }
+.light .body{ color:var(--ink-lo); }
+.light .body strong{ color:var(--ink-tx); }
+.light .grn{ color:var(--green-ink); }
+.light .grn-i{ color:var(--green-ink); text-shadow:none; }
+.light .eyebrow{ color:var(--green-ink); }
+.light .eyebrow::before, .light .eyebrow::after{ background:var(--green-ink); }
 
 /* reveal — vertical only */
 .rv{ opacity:0; transform:translateY(24px); transition:opacity .8s var(--ease),transform .8s var(--ease); }
@@ -197,6 +213,14 @@ main{ position:relative; z-index:3; }
 .feats svg{ width:18px; height:18px; flex-shrink:0; }
 .feats svg circle{ stroke:var(--green); stroke-width:1.5; fill:rgba(92,255,61,.09); }
 .feats svg path{ stroke:var(--green); stroke-width:2.4; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+.light .pillars::before{ background:repeating-linear-gradient(90deg,rgba(11,138,60,.45) 0 8px,transparent 8px 14px); }
+.light .pl-n{ background:#fff; border-color:var(--green-ink); color:var(--green-ink); box-shadow:0 8px 18px -8px rgba(10,122,56,.45),0 0 0 4px rgba(11,138,60,.07); }
+.light .pl h3 sup{ color:var(--ink-dim); }
+.light .pl p{ color:var(--ink-lo); }
+.light .feats{ border-top-color:var(--ink-line); }
+.light .feats li{ color:var(--ink-tx); }
+.light .feats svg circle{ stroke:var(--green-ink); fill:rgba(11,138,60,.08); }
+.light .feats svg path{ stroke:var(--green-ink); }
 
 /* ── BONUSES ───────────────────────────────────────────────── */
 .bonus-grid{ display:grid; grid-template-columns:1.12fr .88fr; gap:clamp(30px,5vw,60px); align-items:center; }
@@ -218,6 +242,11 @@ main{ position:relative; z-index:3; }
 .taught-body p strong{ color:var(--tx); font-weight:700; }
 .verse{ margin-top:22px; padding-left:18px; border-left:3px solid var(--green); font-style:italic; font-weight:700; font-size:clamp(15px,1.5vw,18px); color:var(--tx); max-width:40ch; }
 .verse cite{ display:block; margin-top:8px; font-style:normal; font-weight:800; font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--green); }
+.light .taught-photo{ border-color:rgba(11,138,60,.35); box-shadow:0 2px 6px rgba(14,26,18,.12),0 30px 60px -28px rgba(14,26,18,.45),0 18px 40px -26px rgba(10,122,56,.35); }
+.light .taught-body p{ color:var(--ink-lo); }
+.light .taught-body p strong{ color:var(--ink-tx); }
+.light .verse{ border-left-color:var(--green-ink); color:var(--ink-tx); }
+.light .verse cite{ color:var(--green-ink); }
 
 /* ── FINAL ─────────────────────────────────────────────────── */
 .final .h-big{ margin-top:16px; }
@@ -329,6 +358,7 @@ footer{ background:#000; padding:44px var(--pad-x); border-top:1px solid var(--l
   .pillars{ grid-template-columns:1fr; max-width:460px; margin-left:auto; margin-right:auto; }
   .pillars::before{ top:22px; bottom:22px; left:21px; right:auto; width:2px; height:auto;
     background:repeating-linear-gradient(180deg,rgba(92,255,61,.5) 0 8px,transparent 8px 14px); }
+  .light .pillars::before{ background:repeating-linear-gradient(180deg,rgba(11,138,60,.45) 0 8px,transparent 8px 14px); }
   .pl{ display:grid; grid-template-columns:44px 1fr; column-gap:18px; text-align:left; padding:0 0 26px; }
   .pl:last-child{ padding-bottom:0; }
   .pl-n{ grid-row:span 2; margin:0; }
@@ -415,7 +445,7 @@ footer{ background:#000; padding:44px var(--pad-x); border-top:1px solid var(--l
 </section>
 
 <!-- ═══ WHAT'S INSIDE ══════════════════════════════════════════ -->
-<section class="sec alt">
+<section class="sec light">
   <div class="wrap">
     <div class="inside-head center">
       <span class="eyebrow c rv">What&rsquo;s Inside</span>
@@ -465,7 +495,7 @@ footer{ background:#000; padding:44px var(--pad-x); border-top:1px solid var(--l
 </section>
 
 <!-- ═══ TAUGHT BY ══════════════════════════════════════════════ -->
-<section class="sec alt">
+<section class="sec light">
   <div class="taught-grid">
     <div class="taught-photo rv">
       <img src="images/about-shot.jpg" alt="Mondoe Davis" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x750/0E1B0E/5CFF3D?text=Mondoe+Davis'">
