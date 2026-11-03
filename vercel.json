@@ -1,7 +1,7 @@
 {
   "cleanUrls": true,
   "redirects": [
-    { "source": "/enroll", "destination": "/", "permanent": false },
-    { "source": "/enroll.html", "destination": "/", "permanent": false }
+    { "source": "/enroll", "destination": "https://articulateleader.mykajabi.com/enroll", "permanent": false },
+    { "source": "/enroll.html", "destination": "https://articulateleader.mykajabi.com/enroll", "permanent": false }
   ]
 }
