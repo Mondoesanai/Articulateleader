@@ -4,7 +4,13 @@
     { "source": "/enroll", "destination": "https://articulateleader.mykajabi.com/enroll", "permanent": false },
     { "source": "/enroll.html", "destination": "https://articulateleader.mykajabi.com/enroll", "permanent": false },
     { "source": "/community", "destination": "https://articulateleader.mykajabi.com/products/communities/v2/thearticulateleadercommunity/home", "permanent": false },
-    { "source": "/login", "destination": "https://articulateleader.mykajabi.com/login", "permanent": false }
+    { "source": "/login", "destination": "https://articulateleader.mykajabi.com/login", "permanent": false },
+    { "source": "/mcraven", "destination": "/?utm_source=youtube&utm_medium=video&utm_campaign=mcraven_one_message&utm_content=spoken", "permanent": false },
+    { "source": "/denzel", "destination": "/?utm_source=youtube&utm_medium=video&utm_campaign=denzel_every_word&utm_content=spoken", "permanent": false },
+    { "source": "/jobs", "destination": "/?utm_source=youtube&utm_medium=video&utm_campaign=jobs&utm_content=spoken", "permanent": false },
+    { "source": "/carter", "destination": "/?utm_source=youtube&utm_medium=video&utm_campaign=carter&utm_content=spoken", "permanent": false },
+    { "source": "/jesus", "destination": "/?utm_source=youtube&utm_medium=video&utm_campaign=jesus&utm_content=spoken", "permanent": false },
+    { "source": "/mandela", "destination": "/?utm_source=youtube&utm_medium=video&utm_campaign=mandela&utm_content=spoken", "permanent": false }
   ],
   "headers": [
     {

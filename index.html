@@ -9,7 +9,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Articulate Leader">
 <meta property="og:title" content="FREE Training: The 3 Shifts That Make a Room Go Quiet When You Speak">
-<meta property="og:description" content="A free ~40-minute executive communication training with Mondoe Davis. Built for Christian leaders.">
+<meta property="og:description" content="A free 12-minute communication training with Mondoe Davis. Built for Christian leaders.">
 <meta property="og:url" content="https://www.articulateleader.com/">
 <meta property="og:image" content="https://www.articulateleader.com/images/og-home.jpg">
 <meta property="og:image:width" content="1200">
@@ -22,7 +22,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,500;1,800&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
 
 <style>
 /* ═══════════════════════════════════════════════════════════════
@@ -183,6 +182,7 @@ main{ position:relative; z-index:3; }
 
 .hero-photo{ position:relative; }
 .hero-photo .frame{ position:relative; border:1px solid rgba(92,255,61,.5); box-shadow:var(--shadow); overflow:hidden; aspect-ratio:4/5; }
+.hero-photo picture{ display:contents; }
 .hero-photo img{ width:100%; height:100%; object-fit:cover; object-position:50% 10%; filter:grayscale(.4) contrast(1.04) brightness(.95); }
 .hero-photo .frame::after{ content:''; position:absolute; inset:0; background:linear-gradient(200deg,rgba(92,255,61,.1),transparent 38%,rgba(0,0,0,.5)); }
 .hero-photo .cnr{ position:absolute; width:24px; height:24px; border:2px solid var(--green); z-index:3; }
@@ -305,7 +305,7 @@ main{ position:relative; z-index:3; }
 .device .ui{ display:grid; grid-template-columns:102px 1fr; height:calc(100% - 24px); }
 .device .side{ background:#060d06; border-right:1px solid rgba(92,255,61,.09); padding:9px 8px; }
 .device .side em{ font-style:normal; font-size:7px; font-weight:800; letter-spacing:.1em; color:rgba(92,255,61,.5); text-transform:uppercase; display:block; margin-bottom:7px; }
-.device .row{ font-size:8px; color:rgba(234,243,232,.42); padding:4px 6px; border-radius:3px; margin-bottom:2px; }
+.device .row{ font-size:7.5px; line-height:1.15; color:rgba(234,243,232,.42); padding:3px 6px; border-radius:3px; margin-bottom:2px; }
 .device .row.on{ color:#fff; font-weight:700; background:rgba(92,255,61,.12); border-left:2px solid var(--green); }
 .device .main{ padding:11px 12px; }
 .device .vid{ background:linear-gradient(135deg,#0b160b,#0f1f0f); border:1px solid rgba(92,255,61,.2); border-radius:5px; height:54px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
@@ -314,7 +314,7 @@ main{ position:relative; z-index:3; }
 .device .vid .play::after{ content:''; border-top:5px solid transparent; border-bottom:5px solid transparent; border-left:8px solid #000; margin-left:2px; }
 .device .prog{ margin-top:9px; }
 .device .prog .bar{ height:4px; background:rgba(234,243,232,.1); border-radius:3px; overflow:hidden; }
-.device .prog .bar i{ display:block; width:28%; height:100%; background:linear-gradient(90deg,var(--green),var(--green-d)); box-shadow:0 0 8px rgba(92,255,61,.55); }
+.device .prog .bar i{ display:block; width:54%; height:100%; background:linear-gradient(90deg,var(--green),var(--green-d)); box-shadow:0 0 8px rgba(92,255,61,.55); }
 .device .prog span{ font-size:7px; color:rgba(92,255,61,.65); font-weight:800; letter-spacing:.06em; display:block; margin-top:4px; }
 .device .pills{ display:grid; grid-template-columns:1fr 1fr; gap:5px; margin-top:9px; }
 .device .pill{ background:rgba(92,255,61,.07); border:1px solid rgba(92,255,61,.16); border-radius:4px; padding:6px; text-align:center; }
@@ -418,6 +418,12 @@ footer{ background:#000; padding:44px var(--pad-x); border-top:1px solid var(--l
   html{ scroll-behavior:auto; }
 }
 </style>
+<style>
+/* Tailwind CSS v3.4.17 preflight (MIT License, https://tailwindcss.com), inlined. The page used no Tailwind
+   utilities, only this base reset, which the 407 KB render-blocking Play CDN script injected after the
+   page styles. Kept here, in the same order, so the page renders exactly as before without the script. */
+*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}
+</style>
 </head>
 <body>
 
@@ -427,7 +433,7 @@ footer{ background:#000; padding:44px var(--pad-x); border-top:1px solid var(--l
 
 <header class="top">
   <a href="#top" class="brand" id="top">
-    <img src="images/articulate-leader-logo.png" width="745" height="647" alt="" onerror="this.style.display='none'">
+    <img src="images/articulate-leader-logo-240.png" width="240" height="208" alt="" onerror="this.style.display='none'">
     <span>The Articulate <b>Leader</b>&trade;</span>
   </a>
   <div class="top-r">
@@ -449,18 +455,18 @@ footer{ background:#000; padding:44px var(--pad-x); border-top:1px solid var(--l
         <div class="cta-wrap">
           <button type="button" class="cta" data-open>
             <span class="cta-main">Get Instant Access <b>&rarr;</b></span>
-            <span class="cta-sub">Free &middot; ~40 min &middot; any device</span>
+            <span class="cta-sub">Free &middot; 12 min &middot; any device</span>
           </button>
         </div>
       </div>
       <div class="hero-photo">
-        <div class="frame"><img src="images/hero-shot.png" alt="Mondoe Davis" onerror="this.onerror=null;this.src='https://placehold.co/720x900/0E1B0E/5CFF3D?text=Mondoe+Davis'"></div>
+        <div class="frame"><picture><source type="image/webp" srcset="images/hero-shot-600.webp 600w, images/hero-shot-1000.webp 1000w" sizes="(max-width: 900px) 300px, 500px"><img src="images/hero-shot-1000.jpg" width="1000" height="1373" fetchpriority="high" alt="Mondoe Davis" onerror="this.onerror=null;this.src='https://placehold.co/720x900/0E1B0E/5CFF3D?text=Mondoe+Davis'"></picture></div>
         <span class="stamp">With Mondoe Davis</span>
       </div>
     </div>
     <div class="facts">
       <div class="fact"><b>3</b><span>Core Shifts</span></div>
-      <div class="fact"><b>~40</b><span>Minutes</span></div>
+      <div class="fact"><b>12</b><span>Minutes</span></div>
       <div class="fact"><b>7</b><span>Part Framework</span></div>
       <div class="fact"><b>$0</b><span>To Watch</span></div>
     </div>
@@ -549,13 +555,13 @@ footer{ background:#000; padding:44px var(--pad-x); border-top:1px solid var(--l
   <div class="wrap">
     <div class="mentor-grid">
       <div class="mentor-photo rv">
-        <img src="images/about-shot.jpg" alt="Mondoe Davis" onerror="this.onerror=null;this.src='https://placehold.co/620x744/0E1B0E/5CFF3D?text=Mondoe+Davis'">
+        <img src="images/about-shot-622.jpg" width="622" height="748" loading="lazy" decoding="async" alt="Mondoe Davis" onerror="this.onerror=null;this.src='https://placehold.co/620x744/0E1B0E/5CFF3D?text=Mondoe+Davis'">
       </div>
       <div class="mentor-body rv d1">
         <span class="eyebrow">Meet Your Instructor</span>
         <h2>Mondoe Davis</h2>
         <p>For twenty years my work has come down to one thing: helping Christian men gain <strong>clarity in their purpose</strong>, <strong>communicate with confidence</strong>, and become the <strong>strong leader their family needs</strong>.</p>
-        <p>Former defensive back for the <strong>New York Jets</strong>. <strong>2003 NCAA National Champion</strong>. Founder of <strong>Inspired Life Co.</strong> and author of <em>God&rsquo;s Voice Your Story</em>, a #1 bestseller. Give me about forty minutes.</p>
+        <p>Former defensive back for the <strong>New York Jets</strong>. <strong>2003 NCAA National Champion</strong>. Founder of <strong>Inspired Life Co.</strong> and author of <em>God&rsquo;s Voice Your Story</em>, a #1 bestseller. Give me twelve minutes.</p>
         <p class="sign">&mdash; Mondoe</p>
         <blockquote class="verse">&ldquo;A word fitly spoken is like apples of gold in settings of silver.&rdquo;<cite>Proverbs 25:11</cite></blockquote>
         <div class="chips">
@@ -578,7 +584,7 @@ footer{ background:#000; padding:44px var(--pad-x); border-top:1px solid var(--l
   </div>
   <div class="wrap">
     <span class="eyebrow c rv">What You&rsquo;ll Discover Inside</span>
-    <h2 class="h-big rv d1" style="margin-top:16px">Three shifts. Forty minutes.<br><span class="grn-i">Everything you need to transform.</span></h2>
+    <h2 class="h-big rv d1" style="margin-top:16px">Three shifts. Twelve minutes.<br><span class="grn-i">One message you can use&nbsp;tomorrow.</span></h2>
     <div class="discover-grid">
       <div class="rv">
         <div class="stage">
@@ -590,14 +596,14 @@ footer{ background:#000; padding:44px var(--pad-x); border-top:1px solid var(--l
                 <div class="ui">
                   <div class="side">
                     <em>The 3 Shifts</em>
-                    <div class="row on">01 &middot; The Quiet Shift</div>
-                    <div class="row">02 &middot; The 4-Second Open</div>
-                    <div class="row">03 &middot; Apples of Gold</div>
+                    <div class="row on">01 &middot; Think Before You Speak</div>
+                    <div class="row">02 &middot; Less Is Powerful</div>
+                    <div class="row">03 &middot; Communicate for the Listener</div>
                     <div class="row">&mdash; C.O.N.Q.U.E.R.&trade;</div>
                   </div>
                   <div class="main">
                     <div class="vid"><span class="play"></span></div>
-                    <div class="prog"><div class="bar"><i></i></div><span>Now playing &middot; 12:04 / 41:38</span></div>
+                    <div class="prog"><div class="bar"><i></i></div><span>Now playing &middot; 6:42 / 12:30</span></div>
                     <div class="pills"><div class="pill"><b>3</b><span>Shifts</span></div><div class="pill"><b>7</b><span>Moves</span></div></div>
                   </div>
                 </div>
@@ -609,24 +615,24 @@ footer{ background:#000; padding:44px var(--pad-x); border-top:1px solid var(--l
       </div>
       <div>
         <div class="shift rv">
-          <div class="sn">Shift #1</div>
-          <h3 class="claim">Why &ldquo;just be more confident&rdquo; is the worst advice you&rsquo;ve ever been handed.</h3>
-          <p>The move that makes confidence a <span class="loop">side effect</span> &mdash; not a fight before every meeting.</p>
+          <div class="sn">Shift #1 &middot; Think Before You Speak</div>
+          <h3 class="claim">Decide the point before you open your mouth.</h3>
+          <p><span class="loop">Point, Proof, Purpose</span>: the structure that ends rambling. Know your destination before you start.</p>
         </div>
         <div class="shift rv d1">
-          <div class="sn">Shift #2</div>
-          <h3 class="claim">The 4-second pattern that ends getting interrupted.</h3>
-          <p>Nothing to do with talking faster. A <span class="loop">structure</span> you can install this week.</p>
+          <div class="sn">Shift #2 &middot; Less Is Powerful</div>
+          <h3 class="claim">Say less. Land heavier.</h3>
+          <p>The leaders who sound most powerful aren&rsquo;t the ones who say the most. They&rsquo;re the ones who waste the least. <span class="loop">Make every word earn its place.</span></p>
         </div>
         <div class="shift rv d2">
-          <div class="sn">Shift #3</div>
-          <h3 class="claim">The &ldquo;apples of gold&rdquo; principle: say less, land heavier.</h3>
-          <p>How high-trust leaders frame one sentence so the room <span class="loop">leans in</span>.</p>
+          <div class="sn">Shift #3 &middot; Communicate for the Listener</div>
+          <h3 class="claim">Speak to the listener, not at them.</h3>
+          <p>The V: credibility opens the mind, your story connects the heart, a clear next step moves them. Watch Mondoe build a one-minute message <span class="loop">live, on a timer</span>.</p>
         </div>
         <p class="fw-line rv">These are the first moves of Mondoe&rsquo;s 7-part <b>C.O.N.Q.U.E.R.&trade;</b> framework.</p>
       </div>
     </div>
-    <div class="cta-wrap rv"><button type="button" class="cta" data-open><span class="cta-main">Get Instant Access <b>&rarr;</b></span><span class="cta-sub">Free &middot; ~40 min</span></button></div>
+    <div class="cta-wrap rv"><button type="button" class="cta" data-open><span class="cta-main">Get Instant Access <b>&rarr;</b></span><span class="cta-sub">Free &middot; 12 min</span></button></div>
   </div>
 </section>
 
@@ -639,9 +645,9 @@ footer{ background:#000; padding:44px var(--pad-x); border-top:1px solid var(--l
   <div class="narrow">
     <span class="eyebrow c rv">Your Move, Leader</span>
     <h2 class="mega glow-t rv d1" style="margin-top:18px;font-size:clamp(38px,8vw,86px)">CLOSE THIS PAGE<br>AND <span class="grn">NOTHING CHANGES.</span></h2>
-    <p class="body rv d2">The meetings keep going the way they&rsquo;ve been going. This takes about forty minutes. Start now.</p>
-    <div class="cta-wrap rv d3"><button type="button" class="cta" data-open><span class="cta-main">Get Instant Access <b>&rarr;</b></span><span class="cta-sub">Free &middot; ~40 min &middot; any device</span></button></div>
-    <p class="micro rv">Free &middot; ~40 Minutes &middot; Instant Access</p>
+    <p class="body rv d2">The meetings keep going the way they&rsquo;ve been going. It takes twelve minutes. Start now.</p>
+    <div class="cta-wrap rv d3"><button type="button" class="cta" data-open><span class="cta-main">Get Instant Access <b>&rarr;</b></span><span class="cta-sub">Free &middot; 12 min &middot; any device</span></button></div>
+    <p class="micro rv">Free &middot; 12 Minutes &middot; Instant Access</p>
   </div>
 </section>
 
@@ -651,7 +657,10 @@ footer{ background:#000; padding:44px var(--pad-x); border-top:1px solid var(--l
   <div class="foot-co"><img src="images/inspired-life-co-logo.png" width="400" height="403" alt=""><span>An Inspired Life Co.<br>Program</span></div>
   <p class="foot-brand">The Articulate <b>Leader</b>&trade;</p>
   <p class="foot-lang">Live Inspired &middot; Build Different &middot; Discipline Creates Freedom</p>
-  <div class="foot-links"><a href="https://articulateleader.mykajabi.com/login">Student Login</a><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact</a></div>
+  <div class="foot-links"><a href="https://articulateleader.mykajabi.com/login">Student Login</a></div>
+  <!-- Privacy, Terms and Contact are hidden until the real pages exist (they pointed at "#").
+       When Jr. supplies the policy text and a contact address, add them back here, e.g.
+       <a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="mailto:ADDRESS">Contact</a> -->
   <p class="disclaimer">This training is for educational and informational purposes only. It reflects personal experience and faith-based principles for leadership and communication growth. It is <strong>not</strong> financial, legal, or career advice, and no income, promotion, or specific-result guarantees are made or implied. Results vary based on individual effort, circumstances, and application. By registering, you agree to receive email communication from Inspired Life Co. and can unsubscribe at any time.</p>
   <p class="foot-copy">&copy; 2026 Inspired Life Co. &middot; All Rights Reserved &middot; The Articulate Leader&trade;</p>
 </footer>
@@ -663,7 +672,7 @@ footer{ background:#000; padding:44px var(--pad-x); border-top:1px solid var(--l
     <button type="button" class="modal-x" data-close aria-label="Close">&times;</button>
     <div class="form-live">
       <div class="modal-logo">
-        <img src="images/articulate-leader-logo.png" width="745" height="647" alt="" onerror="this.style.display='none'">
+        <img src="images/articulate-leader-logo-240.png" width="240" height="208" alt="" onerror="this.style.display='none'">
         <span>The Articulate <b>Leader</b>&trade;</span>
       </div>
       <h3 id="modalTitle">Enter your info to get instant access to this <em>FREE</em> training</h3>
@@ -714,7 +723,17 @@ const CONFIG = {
   fields: { name: 'form_submission[name]', email: 'form_submission[email]' },
   fireLeadEvent: true
 };
-(function(){ const g = document.getElementById('doneGo'); if (g && !CONFIG.redirectUrl.startsWith('REPLACE_')) g.href = CONFIG.redirectUrl; })();
+/* Attribution: carry this page's own query string (utm_source, utm_campaign, utm_content...) on to the
+   training page, so the video that sent the visitor is still in the address bar there. Keys the target
+   URL already has are kept as they are. If anything goes wrong, the plain URL is used. */
+function withQuery(url){
+  try {
+    const u = new URL(url);
+    new URLSearchParams(location.search).forEach((v, k) => { if (!u.searchParams.has(k)) u.searchParams.append(k, v); });
+    return u.toString();
+  } catch (e) { return url; }
+}
+(function(){ const g = document.getElementById('doneGo'); if (g && !CONFIG.redirectUrl.startsWith('REPLACE_')) g.href = withQuery(CONFIG.redirectUrl); })();
 
 /* reveal */
 const io = new IntersectionObserver((es) => {
@@ -837,7 +856,7 @@ function sendToKajabi(name, email){
 
 function complete(){
   modalCard.classList.add('sent'); markLead();
-  if (CONFIGURED && !CONFIG.redirectUrl.startsWith('REPLACE_')) setTimeout(() => { location.href = CONFIG.redirectUrl; }, 1400);
+  if (CONFIGURED && !CONFIG.redirectUrl.startsWith('REPLACE_')) setTimeout(() => { location.href = withQuery(CONFIG.redirectUrl); }, 1400);
 }
 
 form.addEventListener('submit', (ev) => {
