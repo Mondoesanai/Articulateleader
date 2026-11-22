@@ -260,8 +260,8 @@ main{ position:relative; z-index:3; }
 /* ── MENTOR ────────────────────────────────────────────────── */
 .mentor{ overflow:hidden; }
 .mentor-grid{ display:grid; grid-template-columns:.88fr 1.12fr; gap:clamp(28px,5vw,58px); align-items:center; text-align:left; }
-.mentor-photo{ position:relative; border:1px solid rgba(92,255,61,.45); box-shadow:var(--shadow); overflow:hidden; aspect-ratio:5/6; }
-.mentor-photo img{ width:100%; height:100%; object-fit:cover; object-position:50% 20%; filter:grayscale(.35) contrast(1.04) brightness(.96); }
+.mentor-photo{ position:relative; border:1px solid rgba(92,255,61,.45); box-shadow:var(--shadow); overflow:hidden; aspect-ratio:4/3; }
+.mentor-photo img{ width:100%; height:100%; object-fit:cover; object-position:50% 30%; filter:grayscale(.35) contrast(1.04) brightness(.96); }
 .mentor-photo::after{ content:''; position:absolute; inset:0; background:linear-gradient(160deg,rgba(92,255,61,.09),transparent 40%,rgba(0,0,0,.5)); }
 .mentor-body .eyebrow{ margin-bottom:12px; }
 .mentor-body h2{ font-size:clamp(34px,6vw,70px); line-height:1; }
@@ -393,7 +393,7 @@ footer{ background:#000; padding:44px var(--pad-x); border-top:1px solid var(--l
   .discover-grid{ grid-template-columns:1fr; gap:32px; }
   .stage{ order:-1; }
   .mentor-grid{ grid-template-columns:1fr; gap:24px; }
-  .mentor-photo{ max-width:360px; margin:0 auto; width:100%; }
+  .mentor-photo{ max-width:520px; margin:0 auto; width:100%; }
   .foryou-grid{ grid-template-columns:1fr; gap:18px; }
   .clip{ width:120px; margin:0 auto; }
 }
@@ -555,7 +555,7 @@ footer{ background:#000; padding:44px var(--pad-x); border-top:1px solid var(--l
   <div class="wrap">
     <div class="mentor-grid">
       <div class="mentor-photo rv">
-        <img src="images/about-shot-622.jpg" width="622" height="748" loading="lazy" decoding="async" alt="Mondoe Davis" onerror="this.onerror=null;this.src='https://placehold.co/620x744/0E1B0E/5CFF3D?text=Mondoe+Davis'">
+        <img src="images/mentor-flex.jpg" width="1039" height="743" loading="lazy" decoding="async" alt="Mondoe Davis" onerror="this.onerror=null;this.src='https://placehold.co/1039x743/0E1B0E/5CFF3D?text=Mondoe+Davis'">
       </div>
       <div class="mentor-body rv d1">
         <span class="eyebrow">Meet Your Instructor</span>
@@ -834,7 +834,9 @@ function markLead(){
 
 /* Post straight into Kajabi via a hidden iframe — a real form POST,
    so no CORS wall and no page navigation. Kajabi records the contact;
-   we don't need to read the response. */
+   we don't need to read the response. Returns a promise that settles when
+   Kajabi's reply has loaded in the iframe, so we never navigate away while
+   the POST is still in flight (a slow phone could lose the lead). */
 function sendToKajabi(name, email){
   let sink = document.getElementById('kajabiSink');
   if (!sink){
@@ -844,6 +846,14 @@ function sendToKajabi(name, email){
     sink.style.cssText = 'position:absolute;width:0;height:0;border:0;left:-9999px';
     document.body.appendChild(sink);
   }
+  const answered = new Promise(res => {
+    const onLoad = () => {
+      let blank = false;                       // skip the iframe's own empty about:blank load
+      try { blank = sink.contentWindow.location.href === 'about:blank'; } catch(e){}   // cross-origin = Kajabi answered
+      if (!blank){ sink.removeEventListener('load', onLoad); res(); }
+    };
+    sink.addEventListener('load', onLoad);
+  });
   const f = document.createElement('form');
   f.action = CONFIG.kajabiFormAction; f.method = 'POST'; f.target = 'kajabiSink'; f.style.display = 'none';
   const put = (n,v) => { const i = document.createElement('input'); i.type = 'hidden'; i.name = n; i.value = v; f.appendChild(i); };
@@ -852,11 +862,18 @@ function sendToKajabi(name, email){
   document.body.appendChild(f);
   f.submit();
   setTimeout(() => f.remove(), 3000);
+  return answered;
 }
 
-function complete(){
+/* Go to the training once Kajabi has answered, but never sooner than 1.4 s
+   (so "You're in." is seen) and never later than 8 s (if Kajabi is slow,
+   the "Go To The Training" button is already on screen). */
+function complete(sent){
   modalCard.classList.add('sent'); markLead();
-  if (CONFIGURED && !CONFIG.redirectUrl.startsWith('REPLACE_')) setTimeout(() => { location.href = withQuery(CONFIG.redirectUrl); }, 1400);
+  if (!(CONFIGURED && !CONFIG.redirectUrl.startsWith('REPLACE_'))) return;
+  const wait = ms => new Promise(res => setTimeout(res, ms));
+  Promise.all([wait(1400), Promise.race([sent || Promise.resolve(), wait(8000)])])
+    .then(() => { location.href = withQuery(CONFIG.redirectUrl); });
 }
 
 form.addEventListener('submit', (ev) => {
@@ -868,9 +885,10 @@ form.addEventListener('submit', (ev) => {
     (name ? form.querySelector('#f-email') : form.querySelector('#f-name')).focus();
     return;
   }
-  if (CONFIGURED) sendToKajabi(name, email);
+  let sent;
+  if (CONFIGURED) sent = sendToKajabi(name, email);
   else console.info('[Articulate Leader] preview submit:', { name, email });
-  complete();
+  complete(sent);
 });
 </script>
 </body>
